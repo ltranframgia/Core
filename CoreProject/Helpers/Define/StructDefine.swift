@@ -7,3 +7,7 @@ public struct GroupItem<Group, Item> {
         self.items = items
     }
 }
+
+struct MimeType {
+    static let imageJpeg = "image/jpeg"
+}

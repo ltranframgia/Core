@@ -21,8 +21,8 @@ extension UIViewController {
 extension UINavigationController {
 
     func navigationBarDefault() {
-        self.navigationBar.isTranslucent = false
-        self.navigationBar.barStyle = .black
-        self.navigationBar.barTintColor = UIColor.darkBlue1
+//        self.navigationBar.isTranslucent = false
+//        self.navigationBar.barStyle = .black
+//        self.navigationBar.barTintColor = UIColor.purple1
     }
 }

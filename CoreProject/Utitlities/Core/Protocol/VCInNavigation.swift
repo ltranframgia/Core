@@ -59,7 +59,7 @@ extension VCInNavigation where Self: UIViewController {
 extension UIButton {
 
     class func navWithImage(image: UIImage?, target: AnyObject?, action: Selector, tinColor: UIColor?) -> UIButton {
-        let navButton: UIButton = UIButton(type: UIButtonType.system)
+        let navButton: UIButton = UIButton(type: UIButtonType.custom)
         navButton.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
         navButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         navButton.setImage(image, for: UIControlState.normal)

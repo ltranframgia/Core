@@ -21,10 +21,6 @@ class MainViewController: UITabBarController {
 
         // setup
         self.setupStartTabbar()
-
-        // config
-//        self.tabBar.tintColor = UIColor.white
-//        self.tabBar.unselectedItemTintColor = UIColor.lightText
     }
 
     override func viewDidLoad() {

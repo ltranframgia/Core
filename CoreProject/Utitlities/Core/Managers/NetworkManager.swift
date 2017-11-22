@@ -1,6 +1,9 @@
 import Alamofire
 
 public typealias ResponseHandler = (ResponseObject?) -> Void
+public typealias Parameter = Parameters
+public typealias NRequest = Request
+public typealias DataUpLoadInfo = (data: Data, name: String, fileName: String, mimeType: String)
 
 struct HeaderKey {
     static let ContentType              = "Content-Type"
@@ -38,6 +41,7 @@ public enum HttpStatusCode: Int {
     case cancelled = -999
     case timeOut = -1001
     case cannotFindHost = -1003
+    case uploadDataError = -90000
 
     init?(statusCode: Int?) {
         guard let _statusCode = statusCode else {
@@ -57,6 +61,20 @@ public struct ResponseObject {
 
 struct NetworkManager {
 
+    fileprivate static var requestCnt: Int = 0 {
+        didSet {
+            DispatchQueue.main.async {
+                if isShowNetworkActivityIndicator == true {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = (requestCnt > 0)
+                } else {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
+            }
+        }
+    }
+
+    static var isShowNetworkActivityIndicator: Bool = true
+
     private static let defaultSessionManager: SessionManager = {
 
         // defaultHeaders
@@ -66,7 +84,7 @@ struct NetworkManager {
         // configuration
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = defaultHeaders
-        configuration.timeoutIntervalForRequest = 20
+        configuration.timeoutIntervalForRequest = 30
 
         // sessionManager
         let sessionManager = SessionManager(configuration: configuration)
@@ -134,9 +152,10 @@ struct NetworkManager {
         completionHandler?(responseObject)
     }
 
-    // MARK: - Request
+    // MARK: - Request (Public)
     @discardableResult
     static func request(urlRequest: URLRequestConvertible, completionHandler: ResponseHandler? = nil) -> Request? {
+        requestCnt += 1
 
         // Request
         let manager = NetworkManager.defaultSessionManager
@@ -149,11 +168,13 @@ struct NetworkManager {
         return manager.request(urlRequest).validate().responseJSON { (response) in
             // analyze response
             NetworkManager.analyzeResponse(response: response, completionHandler: completionHandler)
+            requestCnt -= 1
         }
     }
 
     @discardableResult
     static func requestWithoutToken(urlRequest: URLRequestConvertible, completionHandler: ResponseHandler? = nil) -> Request? {
+        requestCnt += 1
 
         // Request
         let manager = NetworkManager.defaultSessionManager
@@ -166,7 +187,151 @@ struct NetworkManager {
         return manager.request(urlRequest).validate().responseJSON { (response) in
             // analyze response
             NetworkManager.analyzeResponse(response: response, completionHandler: completionHandler)
+            requestCnt -= 1
         }
     }
 
+    static func upload(urlRequest: URLConvertible, dataUpLoadInfo: [DataUpLoadInfo]?, params: Parameters?, requestBack: ((Request?) -> Void)?, progressHandler: ((Double, Double) -> Void)? = nil, completionHandler: ResponseHandler? = nil) {
+        requestCnt += 1
+        let _dataUpLoadInfo = dataUpLoadInfo ?? []
+
+        // Request
+        let manager = NetworkManager.defaultSessionManager
+
+        // AuthHandler
+        let authHandler = AuthHandler(baseUrl: Config.baseUrl)
+        manager.adapter = authHandler
+        // manager.retrier = authHandler
+
+        // request
+        manager.upload(multipartFormData: { multipartFormData in
+
+            // data
+            for dataInfo in _dataUpLoadInfo {
+                multipartFormData.append(dataInfo.data, withName: dataInfo.name, fileName: dataInfo.fileName, mimeType: dataInfo.mimeType)
+            }
+
+            // key value
+            let _params = self.parseParameters(params)
+            logD(_params)
+            for (key, value) in _params {
+                if let dataValue = value.data(using: .utf8) {
+                    multipartFormData.append(dataValue, withName: key)
+                }
+            }
+
+        }, to: urlRequest) { (encodingResult) in
+
+            switch encodingResult {
+            case .success(let upload, _, _):
+
+                // upload
+                let uploadRequest = upload.uploadProgress(closure: { (progress) in
+                    logD("\(progress) + \(progress.fractionCompleted)")
+                    progressHandler?(progress.fractionCompleted, progress.fractionCompleted)
+                }).responseJSON { response in
+                    // analyze response
+                    NetworkManager.analyzeResponse(response: response, completionHandler: completionHandler)
+                    requestCnt -= 1
+                }
+
+                // pass request back
+                requestBack?(uploadRequest)
+            case .failure(let errorData):
+                let errorCode: HttpStatusCode? = .uploadDataError
+                let requestResult: RequestResult = RequestResult.error
+                // create obj response
+                let responseObject = ResponseObject(data: errorData as AnyObject, statusCode: errorCode, result: requestResult)
+
+                // block
+                completionHandler?(responseObject)
+                requestCnt -= 1
+                break
+            }
+        }
+    }
+
+}
+
+// MARK: - Parse parameters (copy from alarmofile)
+extension NetworkManager {
+
+    fileprivate static func parseParameters(_ parameters: Parameters?) -> [(String, String)] {
+        guard let _parameters = parameters else {
+            return []
+        }
+
+        var components: [(String, String)] = []
+
+        for key in _parameters.keys.sorted(by: <) {
+            if let value = _parameters[key] {
+                components += queryComponents(fromKey: key, value: value)
+            }
+        }
+        return components
+    }
+
+    private static func queryComponents(fromKey key: String, value: Any) -> [(String, String)] {
+        var components: [(String, String)] = []
+
+        if let dictionary = value as? [String: Any] {
+            for (nestedKey, value) in dictionary {
+                components += queryComponents(fromKey: "\(key)[\(nestedKey)]", value: value)
+            }
+        } else if let array = value as? [Any] {
+            for value in array {
+                components += queryComponents(fromKey: "\(key)[]", value: value)
+            }
+        } else if let value = value as? NSNumber {
+            if value.isBool {
+                components.append((escape(key), escape((value.boolValue ? "1" : "0"))))
+            } else {
+                components.append((escape(key), escape("\(value)")))
+            }
+        } else if let bool = value as? Bool {
+            components.append((escape(key), escape((bool ? "1" : "0"))))
+        } else {
+            components.append((escape(key), escape("\(value)")))
+        }
+
+        return components
+    }
+
+    private static func escape(_ string: String) -> String {
+
+        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        let subDelimitersToEncode = "!$&'()*+,;="
+
+        var allowedCharacterSet = CharacterSet.urlQueryAllowed
+        allowedCharacterSet.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
+
+        var escaped = ""
+
+        if #available(iOS 8.3, *) {
+            escaped = string.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? string
+        } else {
+            let batchSize = 50
+            var index = string.startIndex
+
+            while index != string.endIndex {
+                let startIndex = index
+                let endIndex = string.index(index, offsetBy: batchSize, limitedBy: string.endIndex) ?? string.endIndex
+                let range = startIndex..<endIndex
+
+                let substring = string[range]
+
+                escaped += substring.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? String(substring)
+
+                index = endIndex
+            }
+        }
+
+        return escaped
+    }
+}
+
+extension NSNumber {
+    fileprivate var isBool: Bool {
+        return CFBooleanGetTypeID() == CFGetTypeID(self)
+    }
 }

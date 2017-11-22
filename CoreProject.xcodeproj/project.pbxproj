@@ -224,6 +224,7 @@
 		82820F991FC55F08005ACE9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				82DE3D3B1FC55273004A5F20 /* LoginViewController.swift */,
 				82DE3D171FC55273004A5F20 /* ChatViewController.swift */,
 				82DE3D181FC55273004A5F20 /* SettingViewController.swift */,
 				82DE3D1F1FC55273004A5F20 /* TimelineViewController.swift */,
@@ -231,7 +232,6 @@
 				82DE3D381FC55273004A5F20 /* StartViewController.swift */,
 				82DE3D391FC55273004A5F20 /* TraineeInforViewController.swift */,
 				82DE3D3A1FC55273004A5F20 /* PlanViewController.swift */,
-				82DE3D3B1FC55273004A5F20 /* LoginViewController.swift */,
 				82DE3D3C1FC55273004A5F20 /* TraineeSituationInforViewController.swift */,
 				82DE3D3D1FC55273004A5F20 /* ListTraineeViewController.swift */,
 			);

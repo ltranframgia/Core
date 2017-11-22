@@ -29,7 +29,26 @@ class LoginViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        var paramsDict = Parameter()
+        paramsDict["dict1"] = "dictv1"
+        paramsDict["dict2"] = "dictv2"
 
+        var params = Parameter()
+        params["1"] = "2"
+        params["bool1"] = true
+        params["bool2"] = false
+        params["int"] = 10
+        params["dict"] = paramsDict
+        params["array"] = [paramsDict]
+
+        NetworkManager.upload(urlRequest: "hth", dataUpLoadInfo: nil, params: params, requestBack: { (request) in
+            logD("request")
+        }, progressHandler: { (current, total) in
+            logD(current)
+            logD(total)
+        }) { (responseObject) in
+            logD(responseObject)
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

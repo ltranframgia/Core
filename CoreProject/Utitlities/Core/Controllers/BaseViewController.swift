@@ -10,7 +10,6 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
     override func viewDidLoad() {
         super.viewDidLoad()
         logD("\(String(describing: self))")
-        self.navigationController?.navigationBarDefault()
         self.createBackMenuButton()
     }
 
@@ -34,12 +33,10 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //        logD("viewWillDisappear \(String(describing: self))")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -63,37 +60,37 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
     }
 
     func addNavBackButton(tinColor: UIColor? = nil) {
-        self.addNavLeftButtonWith(image: #imageLiteral(resourceName: "ic_back_white"), target: self, action: #selector(BaseViewController.touchBackButtonAction), tinColor: tinColor)
+        self.addNavLeftButtonWith(image: #imageLiteral(resourceName: "ic_back_white"), target: self, action: #selector(BaseViewController.touchBackButtonAction(_:)), tinColor: tinColor)
     }
 
     // MARK: - Actions
-    @objc func touchBackButtonAction() {
+    @objc func touchBackButtonAction(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
     }
 
-    //    @objc func actionTouchBtnLeft() {
-    //    }
-    //
-    //    @objc func actionTouchBtnRight() {
-    //    }
+    @objc func touchLeftButtonAction(_ sender: Any) {
+    }
+
+    @objc func touchRightButtonAction(_ sender: Any) {
+    }
 
     // MARK: - Call Api
 
     // MARK: - Functions
 
 }
-
-// MARK: - Loading
-extension BaseViewController {
-
-    func showLoading() {
-//        SVProgressHUD.setDefaultMaskType(.custom)
-//        SVProgressHUD.setBackgroundColor(UIColor.clear)
-//        SVProgressHUD.setBackgroundLayerColor(UIColor.clear)
-//        SVProgressHUD.show()
-    }
-
-    func hideLoading() {
-//        SVProgressHUD.dismiss()
-    }
-}
+//
+//// MARK: - Loading
+//extension BaseViewController {
+//
+//    func showLoading() {
+////        SVProgressHUD.setDefaultMaskType(.custom)
+////        SVProgressHUD.setBackgroundColor(UIColor.clear)
+////        SVProgressHUD.setBackgroundLayerColor(UIColor.clear)
+////        SVProgressHUD.show()
+//    }
+//
+//    func hideLoading() {
+////        SVProgressHUD.dismiss()
+//    }
+//}

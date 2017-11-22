@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoKakuGothic.ttc">
+            <string>HiraginoSans-W6</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderDefaultView" customModule="CoreProject" customModuleProvider="target">
+            <connections>
+                <outlet property="actionButton" destination="GcT-kE-XHx" id="0qg-BF-HbK"/>
+                <outlet property="contentView" destination="BjJ-ln-blH" id="XgD-Jm-ibZ"/>
+                <outlet property="textLabel" destination="v3m-R9-BGL" id="Hc7-E1-vXD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="BjJ-ln-blH" customClass="XView" customModule="CoreProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="期間：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3m-R9-BGL">
+                    <rect key="frame" x="18" y="5" width="275" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="IVk-0B-drA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcT-kE-XHx" customClass="XButton" customModule="CoreProject" customModuleProvider="target">
+                    <rect key="frame" x="301" y="9" width="56" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="SN7-JO-7ax"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
+                    <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                    <state key="normal" title="変更する">
+                        <color key="titleColor" red="0.27058823529999998" green="0.69803921570000005" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.27058823529999998" green="0.69803921570000005" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="topCorner" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomCorner" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="v3m-R9-BGL" firstAttribute="centerY" secondItem="BjJ-ln-blH" secondAttribute="centerY" id="5wQ-s2-7ti"/>
+                <constraint firstItem="GcT-kE-XHx" firstAttribute="leading" secondItem="v3m-R9-BGL" secondAttribute="trailing" constant="8" id="BSn-Id-y8F"/>
+                <constraint firstItem="GcT-kE-XHx" firstAttribute="centerY" secondItem="BjJ-ln-blH" secondAttribute="centerY" id="FRW-8X-Acp"/>
+                <constraint firstItem="v3m-R9-BGL" firstAttribute="leading" secondItem="BjJ-ln-blH" secondAttribute="leading" constant="18" id="VGQ-BC-zRs"/>
+                <constraint firstAttribute="trailing" secondItem="GcT-kE-XHx" secondAttribute="trailing" constant="18" id="f8T-6W-64T"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fyT-mI-s4r"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                    <color key="value" red="0.89019607840000003" green="0.93333333330000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+        </view>
+    </objects>
+</document>

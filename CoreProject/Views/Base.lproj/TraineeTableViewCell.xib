@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoKakuGothic.ttc">
+            <string>HiraginoSans-W3</string>
+            <string>HiraginoSans-W6</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TraineeTableViewCell" id="KGk-i7-Jjw" customClass="TraineeTableViewCell" customModule="ToeicCoach" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNa-Mc-0g2" customClass="XView" customModule="ToeicCoach" customModuleProvider="target">
+                        <rect key="frame" x="8" y="4" width="304" height="111.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID : 012345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rlf-MR-MCK">
+                                <rect key="frame" x="15" y="8" width="86.5" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="32n-gD-who"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="11"/>
+                                <color key="textColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ニックネームさん" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thP-4w-XUb">
+                                <rect key="frame" x="15" y="28" width="127.5" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="VXL-eg-4Ru"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7B-hb-3ls" customClass="XButton" customModule="ToeicCoach" customModuleProvider="target">
+                                <rect key="frame" x="248" y="15" width="48" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="7V8-Qg-pdq"/>
+                                    <constraint firstAttribute="width" constant="48" id="Ft7-rm-U2g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
+                                <color key="tintColor" red="0.87058823529999996" green="0.18823529410000001" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="3" image="ic_tabbar_chat">
+                                    <color key="titleColor" red="0.87058823529999996" green="0.18823529410000001" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.87058823529999996" green="0.18823529410000001" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="topCorner" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bottomCorner" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="touchChatButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OeK-db-56q"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8XQ-XO-KRC" customClass="XProgress" customModule="ToeicCoach" customModuleProvider="target">
+                                <rect key="frame" x="15" y="84" width="274" height="12"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="EKv-px-2Uv"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="passPart">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" red="0.89019607840000003" green="0.93333333330000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="valueColor">
+                                        <color key="value" red="0.87058823529999996" green="0.18823529410000001" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="expectColor">
+                                        <color key="value" red="0.99215686270000003" green="0.94509803920000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="expectPassColor">
+                                        <color key="value" red="0.87058823529999996" green="0.18823529410000001" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="z7B-hb-3ls" secondAttribute="trailing" constant="8" id="EwB-aS-Drc"/>
+                            <constraint firstItem="8XQ-XO-KRC" firstAttribute="leading" secondItem="fNa-Mc-0g2" secondAttribute="leading" constant="15" id="Gur-4v-kWQ"/>
+                            <constraint firstAttribute="bottom" secondItem="8XQ-XO-KRC" secondAttribute="bottom" constant="15" id="PEa-ss-bcN"/>
+                            <constraint firstItem="z7B-hb-3ls" firstAttribute="top" secondItem="fNa-Mc-0g2" secondAttribute="top" constant="15" id="REl-2I-npA"/>
+                            <constraint firstAttribute="trailing" secondItem="8XQ-XO-KRC" secondAttribute="trailing" constant="15" id="aEA-ZN-Nsx"/>
+                            <constraint firstItem="Rlf-MR-MCK" firstAttribute="leading" secondItem="fNa-Mc-0g2" secondAttribute="leading" constant="15" id="deK-ML-jI8"/>
+                            <constraint firstItem="thP-4w-XUb" firstAttribute="top" secondItem="Rlf-MR-MCK" secondAttribute="bottom" id="fg2-WX-IDO"/>
+                            <constraint firstItem="Rlf-MR-MCK" firstAttribute="top" secondItem="fNa-Mc-0g2" secondAttribute="top" constant="8" id="pGU-mS-Esg"/>
+                            <constraint firstItem="thP-4w-XUb" firstAttribute="leading" secondItem="fNa-Mc-0g2" secondAttribute="leading" constant="15" id="yPv-eJ-sIS"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="topLeftCorner" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLeftCorner" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="topRightCorner" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="bottomRightCorner" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="fNa-Mc-0g2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1Dh-1P-jWO"/>
+                    <constraint firstAttribute="bottom" secondItem="fNa-Mc-0g2" secondAttribute="bottom" constant="4" id="Bqd-u1-ulR"/>
+                    <constraint firstAttribute="trailing" secondItem="fNa-Mc-0g2" secondAttribute="trailing" constant="8" id="Y0H-e6-I57"/>
+                    <constraint firstItem="fNa-Mc-0g2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="iEs-YT-kJ8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_tabbar_chat" width="30" height="30"/>
+    </resources>
+</document>

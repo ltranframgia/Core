@@ -5,6 +5,11 @@ public typealias Parameter = Parameters
 public typealias NRequest = Request
 public typealias DataUpLoadInfo = (data: Data, name: String, fileName: String, mimeType: String)
 
+protocol UploadURLConvertible: URLConvertible {
+    func dataUpLoad() -> [DataUpLoadInfo]?
+    func parameters() -> Parameters?
+}
+
 struct HeaderKey {
     static let ContentType              = "Content-Type"
     static let Authorization            = "Authorization"
@@ -154,7 +159,7 @@ struct NetworkManager {
 
     // MARK: - Request (Public)
     @discardableResult
-    static func request(urlRequest: URLRequestConvertible, completionHandler: ResponseHandler? = nil) -> Request? {
+    static func request(_ request: URLRequestConvertible, completionHandler: ResponseHandler? = nil) -> Request? {
         requestCnt += 1
 
         // Request
@@ -165,7 +170,7 @@ struct NetworkManager {
         manager.adapter = authHandler
         // manager.retrier = authHandler
 
-        return manager.request(urlRequest).validate().responseJSON { (response) in
+        return manager.request(request).validate().responseJSON { (response) in
             // analyze response
             NetworkManager.analyzeResponse(response: response, completionHandler: completionHandler)
             requestCnt -= 1
@@ -173,7 +178,7 @@ struct NetworkManager {
     }
 
     @discardableResult
-    static func requestWithoutToken(urlRequest: URLRequestConvertible, completionHandler: ResponseHandler? = nil) -> Request? {
+    static func requestWithoutToken(_ request: URLRequestConvertible, completionHandler: ResponseHandler? = nil) -> Request? {
         requestCnt += 1
 
         // Request
@@ -184,16 +189,15 @@ struct NetworkManager {
         manager.retrier = nil
 
         // request
-        return manager.request(urlRequest).validate().responseJSON { (response) in
+        return manager.request(request).validate().responseJSON { (response) in
             // analyze response
             NetworkManager.analyzeResponse(response: response, completionHandler: completionHandler)
             requestCnt -= 1
         }
     }
 
-    static func upload(urlRequest: URLConvertible, dataUpLoadInfo: [DataUpLoadInfo]?, params: Parameters?, requestBack: ((Request?) -> Void)?, progressHandler: ((Double, Double) -> Void)? = nil, completionHandler: ResponseHandler? = nil) {
+    static func upload(_ request: UploadURLConvertible, requestBack: ((Request?) -> Void)?, progressHandler: ((Double, Double) -> Void)? = nil, completionHandler: ResponseHandler? = nil) {
         requestCnt += 1
-        let _dataUpLoadInfo = dataUpLoadInfo ?? []
 
         // Request
         let manager = NetworkManager.defaultSessionManager
@@ -203,24 +207,27 @@ struct NetworkManager {
         manager.adapter = authHandler
         // manager.retrier = authHandler
 
+        // data
+        let dataUpLoadInfo = request.dataUpLoad() ?? []
+        let params = request.parameters()
+
         // request
         manager.upload(multipartFormData: { multipartFormData in
 
             // data
-            for dataInfo in _dataUpLoadInfo {
+            for dataInfo in dataUpLoadInfo {
                 multipartFormData.append(dataInfo.data, withName: dataInfo.name, fileName: dataInfo.fileName, mimeType: dataInfo.mimeType)
             }
 
             // key value
             let _params = self.parseParameters(params)
-            logD(_params)
             for (key, value) in _params {
                 if let dataValue = value.data(using: .utf8) {
                     multipartFormData.append(dataValue, withName: key)
                 }
             }
 
-        }, to: urlRequest) { (encodingResult) in
+        }, to: request) { (encodingResult) in
 
             switch encodingResult {
             case .success(let upload, _, _):
@@ -253,7 +260,7 @@ struct NetworkManager {
 
 }
 
-// MARK: - Parse parameters (copy from alarmofile)
+// MARK: - Parse parameters (copy from Alamofire)
 extension NetworkManager {
 
     fileprivate static func parseParameters(_ parameters: Parameters?) -> [(String, String)] {

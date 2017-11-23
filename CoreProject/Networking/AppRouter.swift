@@ -35,9 +35,10 @@ enum AppRouter: URLRequestConvertible {
 
 enum UploadRouter: UploadURLConvertible {
 
-    case uploadAvatar(dataUpLoadInfo: [DataUpLoadInfo]?, parameters: Parameters?)
+    case uploadAvatar(dataUpLoadInfo: [DataUpLoad]?, parameters: Parameters?)
 
     var path: String {
+
         switch self {
         case .uploadAvatar :
             return "/"
@@ -46,21 +47,23 @@ enum UploadRouter: UploadURLConvertible {
 
     // MARK: URLConvertible
     func asURL() throws -> URL {
+        let urlString = Config.baseUrl + path
+
         switch self {
         case .uploadAvatar:
-            return try path.asURL()
+            return try urlString.asURL()
         }
     }
 
     // MARK: UploadURLConvertible
-    func dataUpLoad() -> [DataUpLoadInfo]? {
+    func dataUpLoad() -> [DataUpLoad]? {
         switch self {
         case .uploadAvatar(let dataUpLoadInfo, _):
             return dataUpLoadInfo
         }
     }
 
-    func parameters() -> Parameters? {
+    func parameters() -> Parameter? {
 
         switch self {
         case .uploadAvatar( _, let parameters):

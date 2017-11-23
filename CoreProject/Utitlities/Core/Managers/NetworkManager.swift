@@ -1,13 +1,18 @@
+//
+//  Created by Henry Tran
+//  Copyright © 2017 THL. All rights reserved.
+//
+
 import Alamofire
 
 public typealias ResponseHandler = (ResponseObject?) -> Void
 public typealias Parameter = Parameters
 public typealias NRequest = Request
-public typealias DataUpLoadInfo = (data: Data, name: String, fileName: String, mimeType: String)
+public typealias DataUpLoad = (data: Data, name: String, fileName: String, mimeType: String)
 
 protocol UploadURLConvertible: URLConvertible {
-    func dataUpLoad() -> [DataUpLoadInfo]?
-    func parameters() -> Parameters?
+    func dataUpLoad() -> [DataUpLoad]?
+    func parameters() -> Parameter?
 }
 
 struct HeaderKey {

@@ -1,3 +1,8 @@
+//
+//  Created by Henry Tran
+//  Copyright © 2017 THL. All rights reserved.
+//
+
 import Foundation
 
 public func logD(_ object: Any? = nil, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {

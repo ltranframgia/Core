@@ -41,8 +41,10 @@ class LoginViewController: BaseViewController {
         params["dict"] = paramsDict
         params["array"] = [paramsDict]
 
+        var uploadRequest: NRequest?
+        uploadRequest?.cancel()
         NetworkManager.upload(UploadRouter.uploadAvatar(dataUpLoadInfo: nil, parameters: nil), requestBack: { (request) in
-            logD("request")
+            uploadRequest = request
         }, progressHandler: { (current, total) in
             logD(current)
             logD(total)

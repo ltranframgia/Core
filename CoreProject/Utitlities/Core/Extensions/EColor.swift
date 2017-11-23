@@ -1,9 +1,6 @@
 //
-//  Color+Ext.swift
-//  ToeicCoach
-//
-//  Created by Henry Tran on 10/7/17.
-//  Copyright © 2017 Framgia. All rights reserved.
+//  Created by Henry Tran
+//  Copyright © 2017 THL. All rights reserved.
 //
 
 import UIKit

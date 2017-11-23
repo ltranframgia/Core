@@ -1,3 +1,8 @@
+//
+//  Created by Henry Tran
+//  Copyright © 2017 THL. All rights reserved.
+//
+
 public struct GroupItem<Group, Item> {
     public var group: Group
     public var items: [Item]
@@ -9,5 +14,7 @@ public struct GroupItem<Group, Item> {
 }
 
 struct MimeType {
-    static let imageJpeg = "image/jpeg"
+    static let imageAll             = "image/*"
+    static let imageJpeg            = "image/jpeg"
+    static let imagePng             = "image/png"
 }

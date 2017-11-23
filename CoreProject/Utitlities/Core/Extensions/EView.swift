@@ -1,3 +1,8 @@
+//
+//  Created by Henry Tran
+//  Copyright © 2017 THL. All rights reserved.
+//
+
 import UIKit
 
 // MARK: TableViewCell

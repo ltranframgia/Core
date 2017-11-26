@@ -10,7 +10,7 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
     override func viewDidLoad() {
         super.viewDidLoad()
         logD("\(String(describing: self))")
-        self.createBackMenuButton()
+        self.createBackButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,19 +48,48 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
     }
 
     // MARK: - Setup View
-    private func createBackMenuButton() {
+
+    // MARK: - Actions
+
+    // MARK: - Call Api
+
+    // MARK: - Functions
+
+}
+
+// MARK: - Navigation bar
+extension BaseViewController {
+
+    // MARK: - Create View
+    private func createBackButton() {
 
         if (self.numberVCInNav ?? 0) > 1 {
             // add back
-            self.addNavBackButton()
+            self.addNavBackLeftButton()
         } else {
             self.navigationItem.leftBarButtonItem = nil
             self.navigationItem.hidesBackButton = true
         }
     }
 
-    func addNavBackButton(tinColor: UIColor? = nil) {
-        self.addNavLeftButtonWith(image: #imageLiteral(resourceName: "ic_back_white"), target: self, action: #selector(BaseViewController.touchBackButtonAction(_:)), tinColor: tinColor)
+    func setNavTitle(title: String?, subtitle: String?) {
+        self.setNavTitle(title: title)
+    }
+
+    func addNavCloseLeftButton(_ tintColor: UIColor? = nil) {
+        self.addNavLeftButtonWith(image: #imageLiteral(resourceName: "ic_close_gray"), target: self, action: #selector(BaseViewController.touchCloseLeftButtonAction(_ :)), tintColor: tintColor)
+    }
+
+    func addNavBackLeftButton(tintColor: UIColor? = nil) {
+        self.addNavLeftButtonWith(image: #imageLiteral(resourceName: "ic_back_gray"), target: self, action: #selector(BaseViewController.touchBackButtonAction(_ :)), tintColor: tintColor)
+    }
+
+    func addNavLeftButton(image: UIImage?, tintColor: UIColor? = nil) {
+        self.addNavLeftButtonWith(image: image, target: self, action: #selector(BaseViewController.touchLeftButtonAction(_ :)), tintColor: tintColor)
+    }
+
+    func addNavRightButton(image: UIImage?, tintColor: UIColor? = nil) {
+        self.addNavRightButtonWith(image: image, target: self, action: #selector(BaseViewController.touchRightButtonAction(_ :)), tintColor: tintColor)
     }
 
     // MARK: - Actions
@@ -68,29 +97,27 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
         _ = self.navigationController?.popViewController(animated: true)
     }
 
-    @objc func touchLeftButtonAction(_ sender: Any) {
+    @objc func touchCloseLeftButtonAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 
-    @objc func touchRightButtonAction(_ sender: Any) {
-    }
+    @objc func touchLeftButtonAction(_ sender: Any) {}
 
-    // MARK: - Call Api
-
-    // MARK: - Functions
+    @objc func touchRightButtonAction(_ sender: Any) {}
 
 }
-//
-//// MARK: - Loading
-//extension BaseViewController {
-//
-//    func showLoading() {
-////        SVProgressHUD.setDefaultMaskType(.custom)
-////        SVProgressHUD.setBackgroundColor(UIColor.clear)
-////        SVProgressHUD.setBackgroundLayerColor(UIColor.clear)
-////        SVProgressHUD.show()
-//    }
-//
-//    func hideLoading() {
-////        SVProgressHUD.dismiss()
-//    }
-//}
+
+// MARK: - Loading
+extension BaseViewController {
+
+    func showLoading() {
+//        SVProgressHUD.setDefaultMaskType(.custom)
+//        SVProgressHUD.setBackgroundColor(UIColor.clear)
+//        SVProgressHUD.setBackgroundLayerColor(UIColor.clear)
+//        SVProgressHUD.show()
+    }
+
+    func hideLoading() {
+//        SVProgressHUD.dismiss()
+    }
+}

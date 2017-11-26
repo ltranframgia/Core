@@ -47,11 +47,12 @@ public enum HttpStatusCode: Int {
     case conflict = 409
     case internalServerError = 500
     case serviceUnavailable = 503
-    case notConnectedToInternet = -1009
     case cancelled = -999
     case timeOut = -1001
     case cannotFindHost = -1003
-    case uploadDataError = -90000
+    case notConnectedToInternet = -1009
+    case uploadDataError = 3000
+    case other = 9999
 
     init?(statusCode: Int?) {
         guard let _statusCode = statusCode else {
@@ -59,7 +60,11 @@ public enum HttpStatusCode: Int {
         }
 
         // init
-        self.init(rawValue: _statusCode)
+        if let value = HttpStatusCode(rawValue: _statusCode) {
+            self = value
+        } else {
+            self = HttpStatusCode.other
+        }
     }
 }
 
@@ -74,7 +79,7 @@ struct NetworkManager {
     fileprivate static var requestCnt: Int = 0 {
         didSet {
             DispatchQueue.main.async {
-                if isShowNetworkActivityIndicator == true {
+                if canShowNetworkActivityIndicator == true {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = (requestCnt > 0)
                 } else {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -83,7 +88,7 @@ struct NetworkManager {
         }
     }
 
-    static var isShowNetworkActivityIndicator: Bool = true
+    static var canShowNetworkActivityIndicator: Bool = true
 
     private static let defaultSessionManager: SessionManager = {
 
@@ -167,7 +172,7 @@ struct NetworkManager {
     static func request(_ request: URLRequestConvertible, completionHandler: ResponseHandler? = nil) -> Request? {
         requestCnt += 1
 
-        // Request
+        // manager
         let manager = NetworkManager.defaultSessionManager
 
         // AuthHandler
@@ -186,7 +191,7 @@ struct NetworkManager {
     static func requestWithoutToken(_ request: URLRequestConvertible, completionHandler: ResponseHandler? = nil) -> Request? {
         requestCnt += 1
 
-        // Request
+        // manager
         let manager = NetworkManager.defaultSessionManager
 
         // AuthHandler
@@ -204,7 +209,7 @@ struct NetworkManager {
     static func upload(_ request: UploadURLConvertible, requestBack: ((Request?) -> Void)?, progressHandler: ((Double, Double) -> Void)? = nil, completionHandler: ResponseHandler? = nil) {
         requestCnt += 1
 
-        // Request
+        // manager
         let manager = NetworkManager.defaultSessionManager
 
         // AuthHandler
@@ -258,7 +263,6 @@ struct NetworkManager {
                 // block
                 completionHandler?(responseObject)
                 requestCnt -= 1
-                break
             }
         }
     }

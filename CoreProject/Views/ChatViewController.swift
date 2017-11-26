@@ -37,17 +37,13 @@ class ChatViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-
     // MARK: - Setup View
+    fileprivate func setupViewModel() {
 
-    // MARK: - Call Api
+    }
 
     // MARK: - Actions
 
     // MARK: - Functions
+
 }

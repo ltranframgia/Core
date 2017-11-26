@@ -16,6 +16,26 @@ extension UIViewController {
 
         return self.view.window?.rootViewController as? MainViewController
     }
+
+}
+
+// MARK : Handle error
+extension UIViewController {
+
+    @discardableResult
+    func handleResponseError(responseObject: ResponseObject?, completion: (() -> Void)?) -> Bool? {
+
+        // check
+        if responseObject?.statusCode == HttpStatusCode.unauthorized {
+
+            return true
+        } else if responseObject?.statusCode == HttpStatusCode.timeOut {
+
+            return true
+        }
+
+        return nil
+    }
 }
 
 extension UINavigationController {

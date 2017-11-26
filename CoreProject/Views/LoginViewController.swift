@@ -14,43 +14,18 @@ class LoginViewController: BaseViewController {
     @IBOutlet private weak var infoLabel: UILabel!
 
     // MARK: - Varialbes
+    fileprivate var viewModel: LoginViewModel?
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.alpha = 0.6
-        self.view.alpha = 0.6
-        UIView.animate(withDuration: 0.3, delay: 0, options:[UIViewAnimationOptions.curveEaseIn], animations: {
-            self.view.alpha = 1
-            self.navigationController?.navigationBar.alpha = 1
-        }, completion: nil)
+        // setup view model
+        self.setupViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var paramsDict = Parameter()
-        paramsDict["dict1"] = "dictv1"
-        paramsDict["dict2"] = "dictv2"
-
-        var params = Parameter()
-        params["1"] = "2"
-        params["bool1"] = true
-        params["bool2"] = false
-        params["int"] = 10
-        params["dict"] = paramsDict
-        params["array"] = [paramsDict]
-
-        var uploadRequest: NRequest?
-        uploadRequest?.cancel()
-        NetworkManager.upload(UploadRouter.uploadAvatar(dataUpLoadInfo: nil, parameters: nil), requestBack: { (request) in
-            uploadRequest = request
-        }, progressHandler: { (current, total) in
-            logD(current)
-            logD(total)
-        }) { (responseObject) in
-            logD(responseObject)
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -68,14 +43,41 @@ class LoginViewController: BaseViewController {
     }
 
     // MARK: - Setup View
+    fileprivate func setupViewModel() {
 
-    // MARK: - Call Api
+        // init
+        viewModel = LoginViewModel()
+
+        // update status
+        viewModel?.updateLoadingStatusCallback = { [weak self] (isLoading) in
+            DispatchQueue.main.async {
+                self?.hideLoadingIndicator()
+            }
+        }
+
+        // login Success
+        viewModel?.loginSuccessCallback = { [weak self] (isLoading) in
+            logD("loginSuccess")
+            DispatchQueue.main.async {
+                self?.mainViewController?.setupMainTabbar()
+                self?.dismiss(animated: false) {}
+            }
+        }
+
+        // login error
+        viewModel?.loginErrorCallback = { [weak self] (responseObject) in
+            logD("loginError")
+            DispatchQueue.main.async {
+                self?.handleResponseError(responseObject: responseObject, completion: nil)
+            }
+        }
+    }
 
     // MARK: - Actions
     @IBAction func touchButtonLoginAction(_ sender: Any) {
-        self.hideLoadingIndicator()
-        self.mainViewController?.setupMainTabbar()
-        self.dismiss(animated: false) {}
+
+        // login
+        self.viewModel?.login()
     }
 
     // MARK: - Functions

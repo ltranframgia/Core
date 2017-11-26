@@ -8,7 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		346715C5A69E46C140B40A5A /* Pods_CoreProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD34971A5375B33DCEAE111 /* Pods_CoreProject.framework */; };
+		8227ACE41FC9B94B00F63637 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227ACE31FC9B94B00F63637 /* NotificationManager.swift */; };
+		8227ACE71FC9DA1300F63637 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227ACE61FC9DA1300F63637 /* LoginViewModel.swift */; };
+		8227ACEC1FCAF11900F63637 /* ChatRoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227ACEB1FCAF11900F63637 /* ChatRoomListViewController.swift */; };
+		8227ACEE1FCAF1AE00F63637 /* ChatRoomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227ACED1FCAF1AE00F63637 /* ChatRoomDetailViewController.swift */; };
+		8227ACF01FCAF39D00F63637 /* ChatRoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227ACEF1FCAF39D00F63637 /* ChatRoomListViewModel.swift */; };
+		8227ACF31FCAFED300F63637 /* ChatRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227ACF11FCAFED300F63637 /* ChatRoomTableViewCell.swift */; };
+		8227ACF41FCAFED300F63637 /* ChatRoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8227ACF21FCAFED300F63637 /* ChatRoomTableViewCell.xib */; };
 		823327231FC56C3800787EA8 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823327221FC56C3800787EA8 /* Font.swift */; };
+		82627E7E1FCB04970019F5D5 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82627E7D1FCB04970019F5D5 /* ChatRoom.swift */; };
 		82820F941FC55E45005ACE9B /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820F931FC55E45005ACE9B /* AppInfo.swift */; };
 		82820F9B1FC5604F005ACE9B /* EImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820F9A1FC5604F005ACE9B /* EImage.swift */; };
 		82D61DCA1FC48D2F0051ABFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82D61DC61FC48D2F0051ABFC /* Assets.xcassets */; };
@@ -31,31 +39,17 @@
 		82DE3D691FC55273004A5F20 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D141FC55272004A5F20 /* RUser.swift */; };
 		82DE3D6A1FC55273004A5F20 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D171FC55273004A5F20 /* ChatViewController.swift */; };
 		82DE3D6B1FC55273004A5F20 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D181FC55273004A5F20 /* SettingViewController.swift */; };
-		82DE3D6C1FC55273004A5F20 /* HeaderDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D191FC55273004A5F20 /* HeaderDefaultTableViewCell.swift */; };
 		82DE3D6D1FC55273004A5F20 /* HeaderDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D1A1FC55273004A5F20 /* HeaderDefaultView.swift */; };
 		82DE3D6E1FC55273004A5F20 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D1B1FC55273004A5F20 /* BaseViewController.swift */; };
-		82DE3D6F1FC55273004A5F20 /* TraineeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D1C1FC55273004A5F20 /* TraineeTableViewCell.swift */; };
-		82DE3D701FC55273004A5F20 /* TraineeRegistrationInforViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D1D1FC55273004A5F20 /* TraineeRegistrationInforViewController.swift */; };
 		82DE3D711FC55273004A5F20 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D1E1FC55273004A5F20 /* MainViewController.swift */; };
-		82DE3D721FC55273004A5F20 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D1F1FC55273004A5F20 /* TimelineViewController.swift */; };
-		82DE3D731FC55273004A5F20 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D201FC55273004A5F20 /* Plan.storyboard */; };
 		82DE3D741FC55273004A5F20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D221FC55273004A5F20 /* LaunchScreen.storyboard */; };
 		82DE3D751FC55273004A5F20 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D241FC55273004A5F20 /* Setting.storyboard */; };
-		82DE3D761FC55273004A5F20 /* Information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D261FC55273004A5F20 /* Information.storyboard */; };
-		82DE3D771FC55273004A5F20 /* TraineeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D281FC55273004A5F20 /* TraineeTableViewCell.xib */; };
 		82DE3D781FC55273004A5F20 /* HeaderDefaultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D2A1FC55273004A5F20 /* HeaderDefaultView.xib */; };
-		82DE3D791FC55273004A5F20 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D2C1FC55273004A5F20 /* Home.storyboard */; };
 		82DE3D7A1FC55273004A5F20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D2E1FC55273004A5F20 /* Main.storyboard */; };
-		82DE3D7B1FC55273004A5F20 /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D301FC55273004A5F20 /* Timeline.storyboard */; };
 		82DE3D7C1FC55273004A5F20 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D321FC55273004A5F20 /* Chat.storyboard */; };
-		82DE3D7D1FC55273004A5F20 /* HeaderDefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D341FC55273004A5F20 /* HeaderDefaultTableViewCell.xib */; };
 		82DE3D7E1FC55273004A5F20 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82DE3D361FC55273004A5F20 /* Account.storyboard */; };
-		82DE3D7F1FC55273004A5F20 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D381FC55273004A5F20 /* StartViewController.swift */; };
-		82DE3D801FC55273004A5F20 /* TraineeInforViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D391FC55273004A5F20 /* TraineeInforViewController.swift */; };
-		82DE3D811FC55273004A5F20 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D3A1FC55273004A5F20 /* PlanViewController.swift */; };
+		82DE3D7F1FC55273004A5F20 /* AppStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D381FC55273004A5F20 /* AppStartViewController.swift */; };
 		82DE3D821FC55273004A5F20 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D3B1FC55273004A5F20 /* LoginViewController.swift */; };
-		82DE3D831FC55273004A5F20 /* TraineeSituationInforViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D3C1FC55273004A5F20 /* TraineeSituationInforViewController.swift */; };
-		82DE3D841FC55273004A5F20 /* ListTraineeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D3D1FC55273004A5F20 /* ListTraineeViewController.swift */; };
 		82DE3D851FC55273004A5F20 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D411FC55273004A5F20 /* RealmManager.swift */; };
 		82DE3D861FC55274004A5F20 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D421FC55273004A5F20 /* NetworkManager.swift */; };
 		82DE3D871FC55274004A5F20 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D431FC55273004A5F20 /* LocationManager.swift */; };
@@ -77,7 +71,15 @@
 /* Begin PBXFileReference section */
 		427D2647E0A163A8DDA1EFD4 /* Pods-CoreProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreProject/Pods-CoreProject.debug.xcconfig"; sourceTree = "<group>"; };
 		6CD34971A5375B33DCEAE111 /* Pods_CoreProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8227ACE31FC9B94B00F63637 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		8227ACE61FC9DA1300F63637 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8227ACEB1FCAF11900F63637 /* ChatRoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListViewController.swift; sourceTree = "<group>"; };
+		8227ACED1FCAF1AE00F63637 /* ChatRoomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDetailViewController.swift; sourceTree = "<group>"; };
+		8227ACEF1FCAF39D00F63637 /* ChatRoomListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListViewModel.swift; sourceTree = "<group>"; };
+		8227ACF11FCAFED300F63637 /* ChatRoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewCell.swift; sourceTree = "<group>"; };
+		8227ACF21FCAFED300F63637 /* ChatRoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRoomTableViewCell.xib; sourceTree = "<group>"; };
 		823327221FC56C3800787EA8 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		82627E7D1FCB04970019F5D5 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		82820F931FC55E45005ACE9B /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		82820F9A1FC5604F005ACE9B /* EImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EImage.swift; sourceTree = "<group>"; };
 		8290A6C31FC495DD00705546 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,31 +105,17 @@
 		82DE3D141FC55272004A5F20 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		82DE3D171FC55273004A5F20 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		82DE3D181FC55273004A5F20 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		82DE3D191FC55273004A5F20 /* HeaderDefaultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		82DE3D1A1FC55273004A5F20 /* HeaderDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDefaultView.swift; sourceTree = "<group>"; };
 		82DE3D1B1FC55273004A5F20 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		82DE3D1C1FC55273004A5F20 /* TraineeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraineeTableViewCell.swift; sourceTree = "<group>"; };
-		82DE3D1D1FC55273004A5F20 /* TraineeRegistrationInforViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraineeRegistrationInforViewController.swift; sourceTree = "<group>"; };
 		82DE3D1E1FC55273004A5F20 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		82DE3D1F1FC55273004A5F20 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
-		82DE3D211FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Plan.storyboard; sourceTree = "<group>"; };
 		82DE3D231FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82DE3D251FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Setting.storyboard; sourceTree = "<group>"; };
-		82DE3D271FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Information.storyboard; sourceTree = "<group>"; };
-		82DE3D291FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TraineeTableViewCell.xib; sourceTree = "<group>"; };
 		82DE3D2B1FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HeaderDefaultView.xib; sourceTree = "<group>"; };
-		82DE3D2D1FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		82DE3D2F1FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		82DE3D311FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Timeline.storyboard; sourceTree = "<group>"; };
 		82DE3D331FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
-		82DE3D351FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HeaderDefaultTableViewCell.xib; sourceTree = "<group>"; };
 		82DE3D371FC55273004A5F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Account.storyboard; sourceTree = "<group>"; };
-		82DE3D381FC55273004A5F20 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		82DE3D391FC55273004A5F20 /* TraineeInforViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraineeInforViewController.swift; sourceTree = "<group>"; };
-		82DE3D3A1FC55273004A5F20 /* PlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		82DE3D381FC55273004A5F20 /* AppStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStartViewController.swift; sourceTree = "<group>"; };
 		82DE3D3B1FC55273004A5F20 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		82DE3D3C1FC55273004A5F20 /* TraineeSituationInforViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraineeSituationInforViewController.swift; sourceTree = "<group>"; };
-		82DE3D3D1FC55273004A5F20 /* ListTraineeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTraineeViewController.swift; sourceTree = "<group>"; };
 		82DE3D411FC55273004A5F20 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		82DE3D421FC55273004A5F20 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		82DE3D431FC55273004A5F20 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -168,6 +156,47 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8227ACE21FC9B86B00F63637 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		8227ACE51FC9CAB400F63637 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				82DE3D3B1FC55273004A5F20 /* LoginViewController.swift */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		8227ACE81FCAF03500F63637 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				8227ACEB1FCAF11900F63637 /* ChatRoomListViewController.swift */,
+				8227ACED1FCAF1AE00F63637 /* ChatRoomDetailViewController.swift */,
+				82DE3D171FC55273004A5F20 /* ChatViewController.swift */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		8227ACE91FCAF04000F63637 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				82DE3D181FC55273004A5F20 /* SettingViewController.swift */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		8227ACEA1FCAF0BC00F63637 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				82DE3D381FC55273004A5F20 /* AppStartViewController.swift */,
+			);
+			name = Start;
+			sourceTree = "<group>";
+		};
 		82820F911FC55DF6005ACE9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,11 +220,7 @@
 				82DE3D221FC55273004A5F20 /* LaunchScreen.storyboard */,
 				82DE3D2E1FC55273004A5F20 /* Main.storyboard */,
 				82DE3D361FC55273004A5F20 /* Account.storyboard */,
-				82DE3D201FC55273004A5F20 /* Plan.storyboard */,
 				82DE3D241FC55273004A5F20 /* Setting.storyboard */,
-				82DE3D261FC55273004A5F20 /* Information.storyboard */,
-				82DE3D2C1FC55273004A5F20 /* Home.storyboard */,
-				82DE3D301FC55273004A5F20 /* Timeline.storyboard */,
 				82DE3D321FC55273004A5F20 /* Chat.storyboard */,
 			);
 			name = Storyboards;
@@ -204,10 +229,8 @@
 		82820F971FC55EC8005ACE9B /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				82DE3D191FC55273004A5F20 /* HeaderDefaultTableViewCell.swift */,
-				82DE3D341FC55273004A5F20 /* HeaderDefaultTableViewCell.xib */,
-				82DE3D1C1FC55273004A5F20 /* TraineeTableViewCell.swift */,
-				82DE3D281FC55273004A5F20 /* TraineeTableViewCell.xib */,
+				8227ACF11FCAFED300F63637 /* ChatRoomTableViewCell.swift */,
+				8227ACF21FCAFED300F63637 /* ChatRoomTableViewCell.xib */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -224,16 +247,10 @@
 		82820F991FC55F08005ACE9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				82DE3D3B1FC55273004A5F20 /* LoginViewController.swift */,
-				82DE3D171FC55273004A5F20 /* ChatViewController.swift */,
-				82DE3D181FC55273004A5F20 /* SettingViewController.swift */,
-				82DE3D1F1FC55273004A5F20 /* TimelineViewController.swift */,
-				82DE3D1D1FC55273004A5F20 /* TraineeRegistrationInforViewController.swift */,
-				82DE3D381FC55273004A5F20 /* StartViewController.swift */,
-				82DE3D391FC55273004A5F20 /* TraineeInforViewController.swift */,
-				82DE3D3A1FC55273004A5F20 /* PlanViewController.swift */,
-				82DE3D3C1FC55273004A5F20 /* TraineeSituationInforViewController.swift */,
-				82DE3D3D1FC55273004A5F20 /* ListTraineeViewController.swift */,
+				8227ACEA1FCAF0BC00F63637 /* Start */,
+				8227ACE51FC9CAB400F63637 /* Account */,
+				8227ACE81FCAF03500F63637 /* Chat */,
+				8227ACE91FCAF04000F63637 /* Setting */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -340,6 +357,7 @@
 			children = (
 				82DE3D131FC55272004A5F20 /* LeftMenu.swift */,
 				82DE3D141FC55272004A5F20 /* RUser.swift */,
+				82627E7D1FCB04970019F5D5 /* ChatRoom.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -347,6 +365,8 @@
 		82DE3D151FC55273004A5F20 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				8227ACE61FC9DA1300F63637 /* LoginViewModel.swift */,
+				8227ACEF1FCAF39D00F63637 /* ChatRoomListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -373,6 +393,7 @@
 		82DE3D3F1FC55273004A5F20 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8227ACE21FC9B86B00F63637 /* Define */,
 				82820F921FC55DF6005ACE9B /* Models */,
 				82DE3D401FC55273004A5F20 /* Managers */,
 				82DE3D441FC55273004A5F20 /* Designable */,
@@ -386,9 +407,10 @@
 		82DE3D401FC55273004A5F20 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				82DE3D411FC55273004A5F20 /* RealmManager.swift */,
 				82DE3D421FC55273004A5F20 /* NetworkManager.swift */,
+				82DE3D411FC55273004A5F20 /* RealmManager.swift */,
 				82DE3D431FC55273004A5F20 /* LocationManager.swift */,
+				8227ACE31FC9B94B00F63637 /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -499,20 +521,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82DE3D731FC55273004A5F20 /* Plan.storyboard in Resources */,
 				82DE3D7A1FC55273004A5F20 /* Main.storyboard in Resources */,
 				82DE3D741FC55273004A5F20 /* LaunchScreen.storyboard in Resources */,
 				82DE3D751FC55273004A5F20 /* Setting.storyboard in Resources */,
-				82DE3D791FC55273004A5F20 /* Home.storyboard in Resources */,
-				82DE3D771FC55273004A5F20 /* TraineeTableViewCell.xib in Resources */,
 				82DE3D7E1FC55273004A5F20 /* Account.storyboard in Resources */,
 				82DE3D7C1FC55273004A5F20 /* Chat.storyboard in Resources */,
-				82DE3D761FC55273004A5F20 /* Information.storyboard in Resources */,
 				82D61DCB1FC48D2F0051ABFC /* Localizable.strings in Resources */,
 				82D61DCA1FC48D2F0051ABFC /* Assets.xcassets in Resources */,
-				82DE3D7D1FC55273004A5F20 /* HeaderDefaultTableViewCell.xib in Resources */,
+				8227ACF41FCAFED300F63637 /* ChatRoomTableViewCell.xib in Resources */,
 				82DE3D781FC55273004A5F20 /* HeaderDefaultView.xib in Resources */,
-				82DE3D7B1FC55273004A5F20 /* Timeline.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,50 +619,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				82DE3D901FC55274004A5F20 /* ShowError.swift in Sources */,
-				82DE3D6C1FC55273004A5F20 /* HeaderDefaultTableViewCell.swift in Sources */,
 				82DE3D5C1FC55273004A5F20 /* UserDao.swift in Sources */,
 				82DE3D5F1FC55273004A5F20 /* Keys.swift in Sources */,
 				82DE3D6D1FC55273004A5F20 /* HeaderDefaultView.swift in Sources */,
 				82DE3D5B1FC55273004A5F20 /* AppRouter.swift in Sources */,
 				82DE3D821FC55273004A5F20 /* LoginViewController.swift in Sources */,
 				82DE3D991FC55274004A5F20 /* AppDelegate.swift in Sources */,
+				8227ACE71FC9DA1300F63637 /* LoginViewModel.swift in Sources */,
 				82DE3D6E1FC55273004A5F20 /* BaseViewController.swift in Sources */,
 				82DE3D891FC55274004A5F20 /* DCornerDrawable.swift in Sources */,
+				8227ACEC1FCAF11900F63637 /* ChatRoomListViewController.swift in Sources */,
 				82DE3D8F1FC55274004A5F20 /* VCInNavigation.swift in Sources */,
 				82DE3D621FC55273004A5F20 /* Func.swift in Sources */,
 				82DE3D601FC55273004A5F20 /* Config.swift in Sources */,
-				82DE3D6F1FC55273004A5F20 /* TraineeTableViewCell.swift in Sources */,
-				82DE3D721FC55273004A5F20 /* TimelineViewController.swift in Sources */,
 				82DE3D941FC55274004A5F20 /* EViewController.swift in Sources */,
-				82DE3D831FC55273004A5F20 /* TraineeSituationInforViewController.swift in Sources */,
 				82DE3D6B1FC55273004A5F20 /* SettingViewController.swift in Sources */,
+				8227ACE41FC9B94B00F63637 /* NotificationManager.swift in Sources */,
 				82DE3D681FC55273004A5F20 /* LeftMenu.swift in Sources */,
 				82DE3D921FC55274004A5F20 /* EString.swift in Sources */,
 				82820F941FC55E45005ACE9B /* AppInfo.swift in Sources */,
 				82DE3D931FC55274004A5F20 /* EColor.swift in Sources */,
 				82DE3D631FC55273004A5F20 /* EnumDefine.swift in Sources */,
+				8227ACF31FCAFED300F63637 /* ChatRoomTableViewCell.swift in Sources */,
 				82DE3D861FC55274004A5F20 /* NetworkManager.swift in Sources */,
 				82DE3D881FC55274004A5F20 /* DImageView.swift in Sources */,
-				82DE3D841FC55273004A5F20 /* ListTraineeViewController.swift in Sources */,
 				82DE3D691FC55273004A5F20 /* RUser.swift in Sources */,
 				82820F9B1FC5604F005ACE9B /* EImage.swift in Sources */,
+				8227ACEE1FCAF1AE00F63637 /* ChatRoomDetailViewController.swift in Sources */,
 				82DE3D871FC55274004A5F20 /* LocationManager.swift in Sources */,
 				82DE3D651FC55273004A5F20 /* String.swift in Sources */,
-				82DE3D801FC55273004A5F20 /* TraineeInforViewController.swift in Sources */,
 				82DE3D8C1FC55274004A5F20 /* DView.swift in Sources */,
+				8227ACF01FCAF39D00F63637 /* ChatRoomListViewModel.swift in Sources */,
 				823327231FC56C3800787EA8 /* Font.swift in Sources */,
 				82DE3D661FC55273004A5F20 /* UIViewController.swift in Sources */,
-				82DE3D811FC55273004A5F20 /* PlanViewController.swift in Sources */,
 				82DE3D951FC55274004A5F20 /* EView.swift in Sources */,
 				82DE3D711FC55273004A5F20 /* MainViewController.swift in Sources */,
 				82DE3D8D1FC55274004A5F20 /* DButton.swift in Sources */,
 				82DE3D8E1FC55274004A5F20 /* Loadingable.swift in Sources */,
-				82DE3D701FC55273004A5F20 /* TraineeRegistrationInforViewController.swift in Sources */,
 				82DE3D5A1FC55273004A5F20 /* AuthHandler.swift in Sources */,
+				82627E7E1FCB04970019F5D5 /* ChatRoom.swift in Sources */,
 				82DE3D6A1FC55273004A5F20 /* ChatViewController.swift in Sources */,
 				82DE3D851FC55273004A5F20 /* RealmManager.swift in Sources */,
 				82DE3D671FC55273004A5F20 /* Color.swift in Sources */,
-				82DE3D7F1FC55273004A5F20 /* StartViewController.swift in Sources */,
+				82DE3D7F1FC55273004A5F20 /* AppStartViewController.swift in Sources */,
 				82DE3D911FC55274004A5F20 /* EDate.swift in Sources */,
 				82DE3D611FC55273004A5F20 /* StructDefine.swift in Sources */,
 				82DE3D5E1FC55273004A5F20 /* LocalizableString.swift in Sources */,
@@ -665,14 +681,6 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		82DE3D201FC55273004A5F20 /* Plan.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82DE3D211FC55273004A5F20 /* Base */,
-			);
-			name = Plan.storyboard;
-			sourceTree = "<group>";
-		};
 		82DE3D221FC55273004A5F20 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -689,36 +697,12 @@
 			name = Setting.storyboard;
 			sourceTree = "<group>";
 		};
-		82DE3D261FC55273004A5F20 /* Information.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82DE3D271FC55273004A5F20 /* Base */,
-			);
-			name = Information.storyboard;
-			sourceTree = "<group>";
-		};
-		82DE3D281FC55273004A5F20 /* TraineeTableViewCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82DE3D291FC55273004A5F20 /* Base */,
-			);
-			name = TraineeTableViewCell.xib;
-			sourceTree = "<group>";
-		};
 		82DE3D2A1FC55273004A5F20 /* HeaderDefaultView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				82DE3D2B1FC55273004A5F20 /* Base */,
 			);
 			name = HeaderDefaultView.xib;
-			sourceTree = "<group>";
-		};
-		82DE3D2C1FC55273004A5F20 /* Home.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82DE3D2D1FC55273004A5F20 /* Base */,
-			);
-			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		82DE3D2E1FC55273004A5F20 /* Main.storyboard */ = {
@@ -729,28 +713,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		82DE3D301FC55273004A5F20 /* Timeline.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82DE3D311FC55273004A5F20 /* Base */,
-			);
-			name = Timeline.storyboard;
-			sourceTree = "<group>";
-		};
 		82DE3D321FC55273004A5F20 /* Chat.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				82DE3D331FC55273004A5F20 /* Base */,
 			);
 			name = Chat.storyboard;
-			sourceTree = "<group>";
-		};
-		82DE3D341FC55273004A5F20 /* HeaderDefaultTableViewCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82DE3D351FC55273004A5F20 /* Base */,
-			);
-			name = HeaderDefaultTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		82DE3D361FC55273004A5F20 /* Account.storyboard */ = {

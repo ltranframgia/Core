@@ -85,16 +85,6 @@ import SnapKit
                 make.leading.equalTo(self.snp.leading).offset(0)
             })
         }
-
-        // update values
-//        self.cornerRadius = self.contentView.cornerRadius
-//        self.borderWidth = self.contentView.borderWidth
-//        self.borderColor = self.contentView.borderColor
-//        self.bgColor = self.contentView.bgColor
-//        self.topCorner = self.contentView.topCorner
-//        self.bottomCorner = self.contentView.bottomCorner
-//        self.cornerRadius = self.contentView.cornerRadius
-
     }
 
 }

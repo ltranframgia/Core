@@ -1,7 +1,7 @@
 import Alamofire
 
 enum AppRouter: URLRequestConvertible {
-    case getAppInfo(parameters: Parameters)
+    case getAppInfo(parameters: Parameters?)
 
     var method: HTTPMethod {
         switch self {

@@ -1,6 +1,6 @@
 import UIKit
 
-class StartViewController: BaseViewController {
+class AppStartViewController: BaseViewController {
 
     // MARK: - IBOutlet
 
@@ -41,10 +41,10 @@ class StartViewController: BaseViewController {
     private func checkApp() {
 
         // User module (login, register, ...)
-        self.perform(#selector(StartViewController.gotoLoginView), with: nil, afterDelay: 1)
+        self.perform(#selector(AppStartViewController.gotoLoginView), with: nil, afterDelay: 1)
 
         // List trainee
-        //self.perform(#selector(StartViewController.gotoMainApp), with: nil, afterDelay: 1)
+        //self.perform(#selector(AppStartViewController.gotoMainApp), with: nil, afterDelay: 1)
     }
 
     @objc func gotoLoginView() {

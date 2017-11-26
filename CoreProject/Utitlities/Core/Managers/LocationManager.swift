@@ -7,8 +7,11 @@ import UIKit
 import CoreLocation
 
 // MARK: - Notification
-enum LocationEvent {
-    static let didLocationDenied = "didLocationDeniedNotification"
+extension NotificationName {
+
+    public struct Location {
+        public static let didLocationDenied = NSNotification.Name("LocationDidLocationDenied")
+    }
 }
 
 class LocationManager: NSObject {
@@ -140,7 +143,7 @@ extension LocationManager: CLLocationManagerDelegate {
             LocationManager.shared.stopGetCurrentLocation()
 
             // post notification
-            NotificationCenter.default.post(name: Notification.Name(LocationEvent.didLocationDenied), object: nil, userInfo: nil)
+            NotificationCenter.default.post(name: NotificationName.Location.didLocationDenied, object: nil, userInfo: nil)
         case .authorizedAlways:
             LocationManager.shared.getCurrentLocation(completion: { _ in
                 LocationManager.shared.stopGetCurrentLocation()

@@ -7,7 +7,7 @@ import UIKit
 
 protocol VCInNavigation {
 
-    var numberVCInNav: Int? { get}
+    var numberVCInNav: Int? { get }
 
     func delegateSwipeBack(of viewController: UIViewController?, to delegate: UIViewController?)
 
@@ -15,11 +15,11 @@ protocol VCInNavigation {
 
     func viewWillSwipeBack()
 
-    func setNavTitle(title: String?, subtitle: String?)
+    func setNavTitle(title: String?)
 
-    func addNavLeftButtonWith(image: UIImage?, target: AnyObject?, action: Selector, tinColor: UIColor?)
+    func addNavLeftButtonWith(image: UIImage?, target: AnyObject?, action: Selector, tintColor: UIColor?)
 
-    func addNavRightButtonWith(image: UIImage?, target: AnyObject?, action: Selector, tinColor: UIColor?)
+    func addNavRightButtonWith(image: UIImage?, target: AnyObject?, action: Selector, tintColor: UIColor?)
 }
 
 extension VCInNavigation where Self: UIViewController {
@@ -36,31 +36,31 @@ extension VCInNavigation where Self: UIViewController {
         viewController?.navigationController?.interactivePopGestureRecognizer?.isEnabled = enable
     }
 
-    func setNavTitle(title: String?, subtitle: String?) {
+    func setNavTitle(title: String?) {
         self.navigationItem.title = title
     }
 
-    func addNavLeftButtonWith(image: UIImage?, target: AnyObject?, action: Selector, tinColor: UIColor?) {
-        let leftButton = UIButton.navWithImage(image: image, target: target, action: action, tinColor: tinColor)
+    func addNavLeftButtonWith(image: UIImage?, target: AnyObject?, action: Selector, tintColor: UIColor?) {
+        let leftButton = UIButton.navWithImage(image: image, target: target, action: action, tintColor: tintColor)
         leftButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -30, bottom: 0, right: 0)
         leftButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         self.navigationItem.setLeftBarButton(UIBarButtonItem(customView: leftButton), animated: false)
     }
 
-    func addNavRightButtonWith(image: UIImage?, target: AnyObject?, action: Selector, tinColor: UIColor?) {
-        let rightButton = UIButton.navWithImage(image: image, target: target, action: action, tinColor: tinColor)
+    func addNavRightButtonWith(image: UIImage?, target: AnyObject?, action: Selector, tintColor: UIColor?) {
+        let rightButton = UIButton.navWithImage(image: image, target: target, action: action, tintColor: tintColor)
         self.navigationItem.setRightBarButton(UIBarButtonItem(customView: rightButton), animated: false)
     }
 }
 
 extension UIButton {
 
-    class func navWithImage(image: UIImage?, target: AnyObject?, action: Selector, tinColor: UIColor?) -> UIButton {
+    class func navWithImage(image: UIImage?, target: AnyObject?, action: Selector, tintColor: UIColor?) -> UIButton {
         let navButton: UIButton = UIButton(type: UIButtonType.custom)
         navButton.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
         navButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         navButton.setImage(image, for: UIControlState.normal)
-        navButton.tintColor = tinColor ?? UIColor.black
+        navButton.tintColor = tintColor ?? UIColor.black
         return navButton
     }
 }

@@ -1,10 +1,8 @@
 import UIKit
 
 enum TabBarType: Int {
-    case information = 0
     case chat
-    case timeline
-    case plan
+    case setting
 }
 
 class TTabBarItem: UITabBarItem {
@@ -59,7 +57,7 @@ class MainViewController: UITabBarController {
     func setupStartTabbar() {
 
         // Infomation
-        let navigationStart = StartViewController.fromStoryboard(Storyboard.Main.name)
+        let navigationStart = AppStartViewController.fromStoryboard(Storyboard.Main.name)
         let tabBarItemStart = TTabBarItem(title: "Start", image: #imageLiteral(resourceName: "ic_tabbar_infor"), selectedImage: #imageLiteral(resourceName: "ic_tabbar_infor"))
         navigationStart.tabBarItem = tabBarItemStart
 
@@ -71,32 +69,20 @@ class MainViewController: UITabBarController {
 
     func setupMainTabbar() {
 
-        // Infomation
-        let navigationInfor = UIStoryboard(name: Storyboard.Information.name, bundle: nil).instantiateInitialViewController()!
-        let tabBarItemInfor = TTabBarItem(title: "Information", image: #imageLiteral(resourceName: "ic_tabbar_infor"), selectedImage: #imageLiteral(resourceName: "ic_tabbar_infor"))
-        tabBarItemInfor.type = .information
-        navigationInfor.tabBarItem = tabBarItemInfor
-
         // Chat
         let navigationChat = UIStoryboard(name: Storyboard.Chat.name, bundle: nil).instantiateInitialViewController()!
         let tabBarItemChat = TTabBarItem(title: "Chat", image: #imageLiteral(resourceName: "ic_tabbar_chat"), selectedImage: #imageLiteral(resourceName: "ic_tabbar_chat"))
         tabBarItemChat.type = .chat
         navigationChat.tabBarItem = tabBarItemChat
 
-        // Timeline
-        let navigationTimeline = UIStoryboard(name: Storyboard.Timeline.name, bundle: nil).instantiateInitialViewController()!
-        let tabBarItemTimeline = TTabBarItem(title: "Timeline", image: #imageLiteral(resourceName: "ic_tabbar_timeline"), selectedImage: #imageLiteral(resourceName: "ic_tabbar_timeline"))
-        tabBarItemTimeline.type = .timeline
-        navigationTimeline.tabBarItem = tabBarItemTimeline
-
-        // Plan
-        let navigationPlan = UIStoryboard(name: Storyboard.Plan.name, bundle: nil).instantiateInitialViewController()!
-        let tabBarItemPlan = TTabBarItem(title: "Plan", image: #imageLiteral(resourceName: "ic_tabbar_plan"), selectedImage: #imageLiteral(resourceName: "ic_tabbar_plan"))
-        tabBarItemPlan.type = .plan
-        navigationPlan.tabBarItem = tabBarItemPlan
+        // Setting
+        let navigationSetting = UIStoryboard(name: Storyboard.Setting.name, bundle: nil).instantiateInitialViewController()!
+        let tabBarItemSetting = TTabBarItem(title: "Setting", image: #imageLiteral(resourceName: "ic_tabbar_timeline"), selectedImage: #imageLiteral(resourceName: "ic_tabbar_timeline"))
+        tabBarItemSetting.type = .setting
+        navigationSetting.tabBarItem = tabBarItemSetting
 
         // set list childs controller to tabbar
-        let controllers = [navigationInfor, navigationChat, navigationTimeline, navigationPlan]
+        let controllers = [navigationChat, navigationSetting]
         viewControllers = controllers
         hideTabbar(hide: false)
     }

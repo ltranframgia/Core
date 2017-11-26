@@ -13,9 +13,12 @@ extension UITableViewCell {
         tableView.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
     }
 
-    static func dequeueReusableCellFrom<T: UITableViewCell>(_ tableView: UITableView, indexPath: IndexPath) -> T? {
+    static func dequeueReusableCellFrom<T: UITableViewCell>(_ tableView: UITableView, indexPath: IndexPath) -> T {
         let identifier = String(describing: self)
-        return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? T
+        if let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? T {
+            return cell
+        }
+        return T()
     }
 
 }

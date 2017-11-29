@@ -12,6 +12,7 @@ class LoginViewController: BaseViewController {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var infoLabel: UILabel!
+    @IBOutlet private weak var loginButton: XButton!
 
     // MARK: - Varialbes
     fileprivate var viewModel: LoginViewModel?
@@ -48,15 +49,25 @@ class LoginViewController: BaseViewController {
         // init
         viewModel = LoginViewModel()
 
+        // bind to
+        infoLabel.bindTo(viewModel?.userName)
+        loginButton.bindActionTo(viewModel?.loginAction, context: viewModel)
+
+        viewModel?.userName.listener  = { (value) in
+            logD("======= \(String(describing: value))")
+        }
+
         // update status
-        viewModel?.updateLoadingStatusCallback = { [weak self] (isLoading) in
+        viewModel?.loading.listener = { [weak self] (loadingType) in
             DispatchQueue.main.async {
-                self?.hideLoadingIndicator()
+                if loadingType == nil {
+                    self?.hideLoadingIndicator()
+                }
             }
         }
 
         // login Success
-        viewModel?.loginSuccessCallback = { [weak self] (isLoading) in
+        viewModel?.loginRequest.success.listener = { [weak self] (sucess) in
             logD("loginSuccess")
             DispatchQueue.main.async {
                 self?.mainViewController?.setupMainTabbar()
@@ -65,7 +76,7 @@ class LoginViewController: BaseViewController {
         }
 
         // login error
-        viewModel?.loginErrorCallback = { [weak self] (responseObject) in
+        viewModel?.loginRequest.error.listener = { [weak self] (responseObject) in
             logD("loginError")
             DispatchQueue.main.async {
                 self?.handleResponseError(responseObject: responseObject, completion: nil)
@@ -77,7 +88,7 @@ class LoginViewController: BaseViewController {
     @IBAction func touchButtonLoginAction(_ sender: Any) {
 
         // login
-        self.viewModel?.login()
+//        self.viewModel?.login()
     }
 
     // MARK: - Functions

@@ -18,7 +18,9 @@
 		823327231FC56C3800787EA8 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823327221FC56C3800787EA8 /* Font.swift */; };
 		82627E7E1FCB04970019F5D5 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82627E7D1FCB04970019F5D5 /* ChatRoom.swift */; };
 		82820F941FC55E45005ACE9B /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820F931FC55E45005ACE9B /* AppInfo.swift */; };
-		82820F9B1FC5604F005ACE9B /* EImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820F9A1FC5604F005ACE9B /* EImage.swift */; };
+		82820F9B1FC5604F005ACE9B /* ImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820F9A1FC5604F005ACE9B /* ImageExt.swift */; };
+		82BF01C81FCE4656009B2ED5 /* ViewBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BF01C71FCE4656009B2ED5 /* ViewBinding.swift */; };
+		82CCD5BB1FCD702800CC5775 /* DataBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CCD5BA1FCD702800CC5775 /* DataBinding.swift */; };
 		82D61DCA1FC48D2F0051ABFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82D61DC61FC48D2F0051ABFC /* Assets.xcassets */; };
 		82D61DCB1FC48D2F0051ABFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82D61DC71FC48D2F0051ABFC /* Localizable.strings */; };
 		82DE3D5A1FC55273004A5F20 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D001FC55272004A5F20 /* AuthHandler.swift */; };
@@ -60,11 +62,11 @@
 		82DE3D8E1FC55274004A5F20 /* Loadingable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D4C1FC55273004A5F20 /* Loadingable.swift */; };
 		82DE3D8F1FC55274004A5F20 /* VCInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D4D1FC55273004A5F20 /* VCInNavigation.swift */; };
 		82DE3D901FC55274004A5F20 /* ShowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D4E1FC55273004A5F20 /* ShowError.swift */; };
-		82DE3D911FC55274004A5F20 /* EDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D501FC55273004A5F20 /* EDate.swift */; };
-		82DE3D921FC55274004A5F20 /* EString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D511FC55273004A5F20 /* EString.swift */; };
-		82DE3D931FC55274004A5F20 /* EColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D521FC55273004A5F20 /* EColor.swift */; };
-		82DE3D941FC55274004A5F20 /* EViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D531FC55273004A5F20 /* EViewController.swift */; };
-		82DE3D951FC55274004A5F20 /* EView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D541FC55273004A5F20 /* EView.swift */; };
+		82DE3D911FC55274004A5F20 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D501FC55273004A5F20 /* DateExt.swift */; };
+		82DE3D921FC55274004A5F20 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D511FC55273004A5F20 /* StringExt.swift */; };
+		82DE3D931FC55274004A5F20 /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D521FC55273004A5F20 /* ColorExt.swift */; };
+		82DE3D941FC55274004A5F20 /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D531FC55273004A5F20 /* ViewControllerExt.swift */; };
+		82DE3D951FC55274004A5F20 /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D541FC55273004A5F20 /* ViewExt.swift */; };
 		82DE3D991FC55274004A5F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE3D591FC55273004A5F20 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,8 +83,10 @@
 		823327221FC56C3800787EA8 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		82627E7D1FCB04970019F5D5 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		82820F931FC55E45005ACE9B /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
-		82820F9A1FC5604F005ACE9B /* EImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EImage.swift; sourceTree = "<group>"; };
+		82820F9A1FC5604F005ACE9B /* ImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExt.swift; sourceTree = "<group>"; };
 		8290A6C31FC495DD00705546 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82BF01C71FCE4656009B2ED5 /* ViewBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBinding.swift; sourceTree = "<group>"; };
+		82CCD5BA1FCD702800CC5775 /* DataBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBinding.swift; sourceTree = "<group>"; };
 		82D61CC91FC488BA0051ABFC /* CoreProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82D61DC61FC48D2F0051ABFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82D61DC81FC48D2F0051ABFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -126,11 +130,11 @@
 		82DE3D4C1FC55273004A5F20 /* Loadingable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loadingable.swift; sourceTree = "<group>"; };
 		82DE3D4D1FC55273004A5F20 /* VCInNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCInNavigation.swift; sourceTree = "<group>"; };
 		82DE3D4E1FC55273004A5F20 /* ShowError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowError.swift; sourceTree = "<group>"; };
-		82DE3D501FC55273004A5F20 /* EDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDate.swift; sourceTree = "<group>"; };
-		82DE3D511FC55273004A5F20 /* EString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EString.swift; sourceTree = "<group>"; };
-		82DE3D521FC55273004A5F20 /* EColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EColor.swift; sourceTree = "<group>"; };
-		82DE3D531FC55273004A5F20 /* EViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EViewController.swift; sourceTree = "<group>"; };
-		82DE3D541FC55273004A5F20 /* EView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EView.swift; sourceTree = "<group>"; };
+		82DE3D501FC55273004A5F20 /* DateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
+		82DE3D511FC55273004A5F20 /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		82DE3D521FC55273004A5F20 /* ColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
+		82DE3D531FC55273004A5F20 /* ViewControllerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
+		82DE3D541FC55273004A5F20 /* ViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
 		82DE3D591FC55273004A5F20 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		867B85EA734001B9DDBBE73E /* Pods-CoreProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreProject/Pods-CoreProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +163,8 @@
 		8227ACE21FC9B86B00F63637 /* Define */ = {
 			isa = PBXGroup;
 			children = (
+				82CCD5BA1FCD702800CC5775 /* DataBinding.swift */,
+				82BF01C71FCE4656009B2ED5 /* ViewBinding.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -439,12 +445,12 @@
 		82DE3D4F1FC55273004A5F20 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				82DE3D501FC55273004A5F20 /* EDate.swift */,
-				82DE3D511FC55273004A5F20 /* EString.swift */,
-				82DE3D521FC55273004A5F20 /* EColor.swift */,
-				82820F9A1FC5604F005ACE9B /* EImage.swift */,
-				82DE3D541FC55273004A5F20 /* EView.swift */,
-				82DE3D531FC55273004A5F20 /* EViewController.swift */,
+				82DE3D501FC55273004A5F20 /* DateExt.swift */,
+				82DE3D511FC55273004A5F20 /* StringExt.swift */,
+				82DE3D521FC55273004A5F20 /* ColorExt.swift */,
+				82820F9A1FC5604F005ACE9B /* ImageExt.swift */,
+				82DE3D541FC55273004A5F20 /* ViewExt.swift */,
+				82DE3D531FC55273004A5F20 /* ViewControllerExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -620,6 +626,7 @@
 			files = (
 				82DE3D901FC55274004A5F20 /* ShowError.swift in Sources */,
 				82DE3D5C1FC55273004A5F20 /* UserDao.swift in Sources */,
+				82CCD5BB1FCD702800CC5775 /* DataBinding.swift in Sources */,
 				82DE3D5F1FC55273004A5F20 /* Keys.swift in Sources */,
 				82DE3D6D1FC55273004A5F20 /* HeaderDefaultView.swift in Sources */,
 				82DE3D5B1FC55273004A5F20 /* AppRouter.swift in Sources */,
@@ -632,27 +639,28 @@
 				82DE3D8F1FC55274004A5F20 /* VCInNavigation.swift in Sources */,
 				82DE3D621FC55273004A5F20 /* Func.swift in Sources */,
 				82DE3D601FC55273004A5F20 /* Config.swift in Sources */,
-				82DE3D941FC55274004A5F20 /* EViewController.swift in Sources */,
+				82DE3D941FC55274004A5F20 /* ViewControllerExt.swift in Sources */,
 				82DE3D6B1FC55273004A5F20 /* SettingViewController.swift in Sources */,
 				8227ACE41FC9B94B00F63637 /* NotificationManager.swift in Sources */,
 				82DE3D681FC55273004A5F20 /* LeftMenu.swift in Sources */,
-				82DE3D921FC55274004A5F20 /* EString.swift in Sources */,
+				82DE3D921FC55274004A5F20 /* StringExt.swift in Sources */,
 				82820F941FC55E45005ACE9B /* AppInfo.swift in Sources */,
-				82DE3D931FC55274004A5F20 /* EColor.swift in Sources */,
+				82DE3D931FC55274004A5F20 /* ColorExt.swift in Sources */,
 				82DE3D631FC55273004A5F20 /* EnumDefine.swift in Sources */,
 				8227ACF31FCAFED300F63637 /* ChatRoomTableViewCell.swift in Sources */,
 				82DE3D861FC55274004A5F20 /* NetworkManager.swift in Sources */,
 				82DE3D881FC55274004A5F20 /* DImageView.swift in Sources */,
 				82DE3D691FC55273004A5F20 /* RUser.swift in Sources */,
-				82820F9B1FC5604F005ACE9B /* EImage.swift in Sources */,
+				82820F9B1FC5604F005ACE9B /* ImageExt.swift in Sources */,
 				8227ACEE1FCAF1AE00F63637 /* ChatRoomDetailViewController.swift in Sources */,
 				82DE3D871FC55274004A5F20 /* LocationManager.swift in Sources */,
 				82DE3D651FC55273004A5F20 /* String.swift in Sources */,
 				82DE3D8C1FC55274004A5F20 /* DView.swift in Sources */,
 				8227ACF01FCAF39D00F63637 /* ChatRoomListViewModel.swift in Sources */,
+				82BF01C81FCE4656009B2ED5 /* ViewBinding.swift in Sources */,
 				823327231FC56C3800787EA8 /* Font.swift in Sources */,
 				82DE3D661FC55273004A5F20 /* UIViewController.swift in Sources */,
-				82DE3D951FC55274004A5F20 /* EView.swift in Sources */,
+				82DE3D951FC55274004A5F20 /* ViewExt.swift in Sources */,
 				82DE3D711FC55273004A5F20 /* MainViewController.swift in Sources */,
 				82DE3D8D1FC55274004A5F20 /* DButton.swift in Sources */,
 				82DE3D8E1FC55274004A5F20 /* Loadingable.swift in Sources */,
@@ -662,7 +670,7 @@
 				82DE3D851FC55273004A5F20 /* RealmManager.swift in Sources */,
 				82DE3D671FC55273004A5F20 /* Color.swift in Sources */,
 				82DE3D7F1FC55273004A5F20 /* AppStartViewController.swift in Sources */,
-				82DE3D911FC55274004A5F20 /* EDate.swift in Sources */,
+				82DE3D911FC55274004A5F20 /* DateExt.swift in Sources */,
 				82DE3D611FC55273004A5F20 /* StructDefine.swift in Sources */,
 				82DE3D5E1FC55273004A5F20 /* LocalizableString.swift in Sources */,
 				82DE3D5D1FC55273004A5F20 /* Constants.swift in Sources */,

@@ -111,9 +111,6 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCustomHighlight" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="touchButtonLoginAction:" destination="Ag5-be-msn" eventType="touchUpInside" id="mrA-lX-9ML"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCk-l7-nc9" customClass="HeaderDefaultView" customModule="CoreProject" customModuleProvider="target">
                                 <rect key="frame" x="10" y="577" width="355" height="80"/>
@@ -155,6 +152,7 @@
                     <navigationItem key="navigationItem" id="u70-KV-NKW"/>
                     <connections>
                         <outlet property="infoLabel" destination="s2U-Nb-5BA" id="eft-qd-wzz"/>
+                        <outlet property="loginButton" destination="tJF-ht-uqL" id="5xC-ng-oYi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnQ-1y-AcD" userLabel="First Responder" sceneMemberID="firstResponder"/>

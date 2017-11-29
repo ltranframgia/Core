@@ -10,4 +10,7 @@ import UIKit
 
 class ChatRoom {
 
+    var chatRoomName: String?
+    var chatRoomDescpription: String?
+    var chatRoomAvatarUrl: String?
 }

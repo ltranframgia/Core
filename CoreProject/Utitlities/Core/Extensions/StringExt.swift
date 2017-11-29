@@ -25,3 +25,11 @@ extension String {
         return CGSize(width: ceil(fitRect.size.width), height: ceil(fitRect.size.height))
     }
 }
+
+extension Int {
+
+    var toString: String {
+        return String(self)
+    }
+
+}

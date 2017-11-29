@@ -37,6 +37,13 @@ enum UploadRouter: UploadURLConvertible {
 
     case uploadAvatar(dataUpLoadInfo: [DataUpLoad]?, parameters: Parameters?)
 
+    var method: HTTPMethod {
+        switch self {
+        case .uploadAvatar :
+            return .post
+        }
+    }
+
     var path: String {
 
         switch self {

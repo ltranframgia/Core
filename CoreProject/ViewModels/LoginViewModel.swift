@@ -8,22 +8,14 @@
 
 import Foundation
 
-class LoginViewModel: ViewModel {
-
-    // MARK: - Callback
-    var updateLoadingStatusCallback: ((Bool?) -> Void)?
-    var loginSuccessCallback: ((Bool?) -> Void)?
-    var loginErrorCallback: ((ResponseObject?) -> Void)?
+class LoginViewModel: ViewModelComfortable {
 
     // MARK: - Variables
-    fileprivate var isLoading: Bool? {
-        didSet {
-            updateLoadingStatusCallback?(isLoading)
-        }
-    }
-
-    var userName: String?
-    var passWord: String?
+    var loginRequest: RequestDynamic = RequestDynamic()
+    var loading: Dynamic<LoadingType> = Dynamic()
+    var userName: Dynamic<String> = Dynamic()
+    var passWord: Dynamic<String> = Dynamic()
+    var loginAction: Selector = #selector(login(_:))
 
     // MARK: - init
     init() {
@@ -31,47 +23,39 @@ class LoginViewModel: ViewModel {
     }
 
     // MARK: - Action
-    func login() {
-        isLoading = true
+    @objc func login(_ sender: Any?) {
+        userName.value = "1231"
+        loading.value = .center
         doLogin()
     }
 
     // MARK: - Call Api
     fileprivate func doLogin() {
-        self.loginSuccessCallback?(true)
-        //        NetworkManager.request(AppRouter.getAppInfo(parameters: nil)) { [weak self] (responseObject) in
-        //
-        //            defer {
-        //                self?.isLoading = false
-        //            }
-        //
-        //            guard let strongSelf = self else { return }
-        //
-        //            if responseObject?.result == .success {
-        //                strongSelf.loginSuccessCallback?(true)
-        //
-        //            } else if responseObject?.result == .error {
-        //                strongSelf.loginErrorCallback?(responseObject)
-        //            }
-        //
-        //        }
+        self.loginRequest.success.value = true
+        NetworkManager.request(AppRouter.getAppInfo(parameters: nil)) { [weak self] (responseObject) in
+
+            defer {
+                self?.loading.value = nil
+            }
+
+            guard let strongSelf = self else { return }
+
+            if responseObject?.result == .success {
+                strongSelf.loginRequest.success.value = true
+
+            } else if responseObject?.result == .error {
+                strongSelf.loginRequest.error.value = responseObject
+            }
+        }
     }
 
 }
 
-class LoginFBViewModel: ViewModel {
-
-    // MARK: - Callback
-    var updateLoadingStatusCallback: ((Bool?) -> Void)?
-    var loginSuccessCallback: ((Bool?) -> Void)?
-    var loginErrorCallback: ((ResponseObject?) -> Void)?
+class LoginFBViewModel: ViewModelComfortable {
 
     // MARK: - Variables
-    fileprivate var isLoading: Bool? {
-        didSet {
-            updateLoadingStatusCallback?(isLoading)
-        }
-    }
+    var loginRequest: RequestDynamic = RequestDynamic()
+    var loading: Dynamic<LoadingType> = Dynamic()
 
     // MARK: - init
     init() {
@@ -80,13 +64,13 @@ class LoginFBViewModel: ViewModel {
 
     // MARK: - Action
     func login() {
-        isLoading = true
+        loading.value = .center
         doLogin()
     }
 
     // MARK: - Call Api
     fileprivate func doLogin() {
-        self.loginSuccessCallback?(true)
+        loginRequest.success.value = true
     }
 
 }

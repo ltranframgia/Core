@@ -26,11 +26,12 @@ class ChatRoomListViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.doGetListChatRoom()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        viewModel?.doGetListChatRoom(.center)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -44,6 +45,8 @@ class ChatRoomListViewController: BaseViewController {
 
     // MARK: - Setup View
     fileprivate func setupTableView() {
+
+        // tableView
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -57,8 +60,23 @@ class ChatRoomListViewController: BaseViewController {
         // init
         viewModel = ChatRoomListViewModel()
 
+        // loading
+        viewModel?.updateLoadingStatusCallback = { [weak self] (hide, loadingType) in
+            DispatchQueue.main.async {
+                if hide == true {
+                    self?.hideLoadingIndicator()
+                    self?.tableView.hideLoadMoreFooterView()
+                } else {
+
+                    if loadingType == .center {
+                        self?.showLoadingIndicator(inView: self?.tableView, position: .center, offset: 0)
+                    }
+                }
+            }
+        }
+
         // reload
-        viewModel?.reloadTableViewCallback = { [weak self] (animated) in
+        viewModel?.tableView.reloadData.listener = { [weak self] (animated) in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
@@ -103,6 +121,22 @@ extension ChatRoomListViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        // load more
+        let y = scrollView.contentOffset.y
+        let content_height = scrollView.contentSize.height
+        let frame_height = scrollView.frame.height
+        let maximumOffset = content_height - frame_height
+        if maximumOffset - y <= 50 {
+            if self.viewModel?.isLoading != true {
+                tableView.showLoadMoreFooterView {
+                    self.viewModel?.doGetListChatRoom(.loadMore)
+                }
+            }
+        }
     }
 
 }

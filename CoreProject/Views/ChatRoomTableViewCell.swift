@@ -15,7 +15,7 @@ class ChatRoomTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var chatRoomNameLabel: UILabel!
     @IBOutlet fileprivate weak var chatRoomDescriptionLabel: UILabel!
 
-    static var height: CGFloat = 44.0
+    static let height: CGFloat = 100.0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,20 +28,55 @@ class ChatRoomTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func config(viewModel: ViewModel?) {
-        guard let chatRoomCellViewModel = viewModel as? ChatRoomCellViewModel else {
-            return
+    // MARK: - Setup
+    func config(viewModel: ViewModelComfortable?) {
+        if let chatRoomCellViewModel = viewModel as? ChatRoomCellViewModel {
+            self.config(chatRoomCellViewModel: chatRoomCellViewModel)
         }
 
-        chatRoomNameLabel.text = chatRoomCellViewModel.chatRoomName
-        chatRoomDescriptionLabel.text = chatRoomCellViewModel.chatRoomDescpription
-
     }
+
+    fileprivate func config(chatRoomCellViewModel: ChatRoomCellViewModel?) {
+        chatRoomNameLabel.text = chatRoomCellViewModel?.chatRoomName
+        chatRoomDescriptionLabel.text = chatRoomCellViewModel?.chatRoomDescpription
+    }
+
 }
 
-struct ChatRoomCellViewModel: ViewModel {
+struct ChatRoomCellViewModel: ViewModelComfortable {
+
     var chatRoomName: String?
     var chatRoomDescpription: String?
     var chatRoomAvatarUrl: String?
+
+    // MARK: - Functions
+    func estimateCellHeight(at indexPath: IndexPath?) -> CGFloat {
+
+        var heightCell: CGFloat = 0
+        let screenWidth = Device.screenWidth
+        let maxWidth = screenWidth - 10 - 80 - 10 - 10
+        let attributesName = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)]
+
+        if let size = chatRoomName?.sizeToFitWidth(maxWidth, attributes: attributesName) {
+            heightCell += 10
+            heightCell += size.height
+        }
+
+        let attributesDescription =  [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]
+        if let size = chatRoomDescpription?.sizeToFitWidth(maxWidth, attributes: attributesDescription) {
+            heightCell += 10
+            heightCell += size.height
+        }
+
+        heightCell += 10
+
+        // validate
+        if heightCell < ChatRoomTableViewCell.height {
+            return ChatRoomTableViewCell.height
+        }
+
+        // return
+        return heightCell
+    }
 
 }

@@ -11,6 +11,7 @@ public typealias NRequest = Request
 public typealias DataUpLoad = (data: Data, name: String, fileName: String, mimeType: String)
 
 protocol UploadURLConvertible: URLConvertible {
+    var method: HTTPMethod { get }
     func dataUpLoad() -> [DataUpLoad]?
     func parameters() -> Parameter?
 }
@@ -237,7 +238,7 @@ struct NetworkManager {
                 }
             }
 
-        }, to: request) { (encodingResult) in
+        }, to: request, method: request.method) { (encodingResult) in
 
             switch encodingResult {
             case .success(let upload, _, _):

@@ -11,11 +11,12 @@ import UIKit
 class LoginViewController: BaseViewController {
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var infoLabel: UILabel!
+    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginButton: XButton!
 
     // MARK: - Varialbes
-    fileprivate var viewModel: LoginViewModel?
+    fileprivate var viewModel: LoginViewModelBindable?
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -31,7 +32,6 @@ class LoginViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.showLoadingIndicator(inView: self.infoLabel, position: .center, offset: 0)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,27 +47,27 @@ class LoginViewController: BaseViewController {
     fileprivate func setupViewModel() {
 
         // init
-        viewModel = LoginViewModel()
-
-        // bind to
-        infoLabel.bindTo(viewModel?.userName)
-        loginButton.bindActionTo(viewModel?.loginAction, context: viewModel)
-
-        viewModel?.userName.listener  = { (value) in
-            logD("======= \(String(describing: value))")
+        if viewModel == nil {
+            viewModel = LoginViewModel()
         }
 
+        // bind to
+        usernameTextField.bindTo(viewModel?.username)
+        passwordTextField.bindTo(viewModel?.password)
+
         // update status
-        viewModel?.loading.listener = { [weak self] (loadingType) in
+        viewModel?.loading.onUpdate = { [weak self] (loading) in
             DispatchQueue.main.async {
-                if loadingType == nil {
+                if loading?.show == nil {
                     self?.hideLoadingIndicator()
+                } else if loading?.type == .center {
+                    self?.showLoadingIndicator(inView: self?.loginButton, position: .center, offset: 0)
                 }
             }
         }
 
-        // login Success
-        viewModel?.loginRequest.success.listener = { [weak self] (sucess) in
+        // login success
+        viewModel?.loginResponse.success.onUpdate = { [weak self] (success) in
             logD("loginSuccess")
             DispatchQueue.main.async {
                 self?.mainViewController?.setupMainTabbar()
@@ -76,7 +76,7 @@ class LoginViewController: BaseViewController {
         }
 
         // login error
-        viewModel?.loginRequest.error.listener = { [weak self] (responseObject) in
+        viewModel?.loginResponse.error.onUpdate = { [weak self] (responseObject) in
             logD("loginError")
             DispatchQueue.main.async {
                 self?.handleResponseError(responseObject: responseObject, completion: nil)
@@ -88,7 +88,8 @@ class LoginViewController: BaseViewController {
     @IBAction func touchButtonLoginAction(_ sender: Any) {
 
         // login
-//        self.viewModel?.login()
+        self.viewModel?.loginAction()
+//        _ = self.viewModel?.validate(userName: userNameTextField.text, passWord:  passwordTextField.text)
     }
 
     // MARK: - Functions

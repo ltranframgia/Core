@@ -8,16 +8,16 @@
 
 import UIKit
 
-class ChatRoomListViewModel: ViewModelComfortable {
+class ChatRoomListViewModel: ViewModelComfortable, TableViewModelBindable {
 
-    // MARK: - Callback
     var tableView: TableViewDynamic = TableViewDynamic()
-    var updateLoadingStatusCallback: ((Bool, LoadingType?) -> Void)?
+
+    var loading: Dynamic<Loading> = Dynamic()
 
     // MARK: - Variables
     fileprivate var listChatRoom: [ChatRoom]
-    fileprivate var listCells: [CellModelInfo]
-    var isLoading: Bool?
+    var listCells: [CellModelInfo]
+    var isRequesting: Bool?
 
     // MARK: - Init
     init() {
@@ -28,9 +28,9 @@ class ChatRoomListViewModel: ViewModelComfortable {
     // MARK: - Actions
 
     // MARK: - Api
-    func doGetListChatRoom(_ loadingType: LoadingType?) {
-        updateLoadingStatusCallback?(false, loadingType)
-        isLoading = true
+    func doGetData(_ loadingType: LoadingType?) {
+        loading.value = (true, loadingType)
+        isRequesting = true
         DispatchQueue.global(qos: .background).async {
 
             for _ in 0..<20 {
@@ -47,9 +47,9 @@ class ChatRoomListViewModel: ViewModelComfortable {
 
             // reload
             DispatchQueue.main.async {
-                self.updateLoadingStatusCallback?(true, loadingType)
+                self.loading.value = (false, loadingType)
                 self.tableView.reloadData.value = true
-                self.isLoading = false
+                self.isRequesting = false
             }
         }
     }
@@ -57,9 +57,9 @@ class ChatRoomListViewModel: ViewModelComfortable {
     // MARK: - Functions
     fileprivate func cellModelInfo(of chatRoom: ChatRoom?, at indexPath: IndexPath?) -> CellModelInfo {
         let viewModel = createCellViewModel(of: chatRoom, at: indexPath)
-        let heightCell = estimateCellHeight(of: viewModel, at: indexPath)
+        let sizeCell = estimateCellHeight(of: viewModel, at: indexPath)
 
-        return (viewModel, heightCell)
+        return (viewModel, sizeCell)
     }
 
     fileprivate func createCellViewModel(of chatRoom: ChatRoom?, at indexPath: IndexPath?) -> ViewModelComfortable? {
@@ -79,23 +79,23 @@ class ChatRoomListViewModel: ViewModelComfortable {
         return chatRoomCellViewModel
     }
 
-    fileprivate func estimateCellHeight(of viewModel: ViewModelComfortable?, at indexPath: IndexPath?) -> CGFloat {
+    fileprivate func estimateCellHeight(of viewModel: ViewModelComfortable?, at indexPath: IndexPath?) -> CGSize {
 
         let heightCell: CGFloat =  (viewModel as? ChatRoomCellViewModel)?.estimateCellHeight(at: indexPath) ?? 0
-        return heightCell
+        return CGSize(width: Device.screenWidth, height: heightCell)
     }
 
     // MARK: - Data Sources
-    func numberOfRows(in section: Int) -> Int {
-        return listCells.count
-    }
-
-    func heightCell(at indexPath: IndexPath) -> CGFloat {
-        return listCells[indexPath.row].height
-    }
-
-    func cellViewModel(at indexPath: IndexPath ) -> ViewModelComfortable? {
-        return listCells[indexPath.row].viewModel
-    }
+//    func numberOfRows(in section: Int) -> Int {
+//        return listCells.count
+//    }
+//
+//    func heightCell(at indexPath: IndexPath) -> CGFloat {
+//        return listCells[indexPath.row].height
+//    }
+//
+//    func cellViewModel(at indexPath: IndexPath ) -> ViewModelComfortable? {
+//        return listCells[indexPath.row].viewModel
+//    }
 
 }

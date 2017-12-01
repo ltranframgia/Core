@@ -6,7 +6,9 @@
 import UIKit
 import SnapKit
 
-enum LoadingType {
+public typealias Loading = (show: Bool?, type: LoadingType?)
+
+public enum LoadingType {
     case pullToRefresh
     case top
     case center

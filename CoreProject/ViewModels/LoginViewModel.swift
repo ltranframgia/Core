@@ -8,14 +8,24 @@
 
 import Foundation
 
-class LoginViewModel: ViewModelComfortable {
+protocol LoginViewModelBindable: LoadingBindable {
+    var loginResponse: ResponseDynamic { get }
+    var username: Dynamic<String> { get }
+    var password: Dynamic<String> { get }
+    func loginAction()
+}
+
+class LoginViewModel: ViewModelComfortable, LoginViewModelBindable {
+
+    var loginResponse: ResponseDynamic = ResponseDynamic()
+
+    var loading: Dynamic<Loading> = Dynamic()
+
+    var username: Dynamic<String> = Dynamic()
+
+    var password: Dynamic<String> = Dynamic()
 
     // MARK: - Variables
-    var loginRequest: RequestDynamic = RequestDynamic()
-    var loading: Dynamic<LoadingType> = Dynamic()
-    var userName: Dynamic<String> = Dynamic()
-    var passWord: Dynamic<String> = Dynamic()
-    var loginAction: Selector = #selector(login(_:))
 
     // MARK: - init
     init() {
@@ -23,39 +33,55 @@ class LoginViewModel: ViewModelComfortable {
     }
 
     // MARK: - Action
-    @objc func login(_ sender: Any?) {
-        userName.value = "1231"
-        loading.value = .center
+    func validate(username: String?, password: String?) -> Bool? {
+
+        self.username.value = username
+        self.password.value = password
+
+        loginAction()
+
+        return true
+    }
+
+    func loginAction() {
+        loading.value = (true, .center)
         doLogin()
     }
 
     // MARK: - Call Api
     fileprivate func doLogin() {
-        self.loginRequest.success.value = true
-        NetworkManager.request(AppRouter.getAppInfo(parameters: nil)) { [weak self] (responseObject) in
+        var params = Parameter()
+        params["username"] = "ltranframgia"
+        params["password"] = "12345678"
 
+        NetworkManager.request(AuthRouter.login(parameters: params)) { [weak self] (responseObject) in
+            logD(responseObject)
             defer {
-                self?.loading.value = nil
+                self?.loading.value = (false, .center)
             }
 
             guard let strongSelf = self else { return }
 
             if responseObject?.result == .success {
-                strongSelf.loginRequest.success.value = true
+                strongSelf.loginResponse.success.value = true
 
             } else if responseObject?.result == .error {
-                strongSelf.loginRequest.error.value = responseObject
+                strongSelf.loginResponse.error.value = responseObject
             }
         }
     }
 
 }
 
-class LoginFBViewModel: ViewModelComfortable {
+class LoginFBViewModel: ViewModelComfortable, LoginViewModelBindable {
 
-    // MARK: - Variables
-    var loginRequest: RequestDynamic = RequestDynamic()
-    var loading: Dynamic<LoadingType> = Dynamic()
+    var loginResponse: ResponseDynamic = ResponseDynamic()
+
+    var loading: Dynamic<Loading> = Dynamic()
+
+    var username: Dynamic<String> = Dynamic()
+
+    var password: Dynamic<String> = Dynamic()
 
     // MARK: - init
     init() {
@@ -63,14 +89,14 @@ class LoginFBViewModel: ViewModelComfortable {
     }
 
     // MARK: - Action
-    func login() {
-        loading.value = .center
+    func loginAction() {
+        loading.value = (true, .center)
         doLogin()
     }
 
     // MARK: - Call Api
     fileprivate func doLogin() {
-        loginRequest.success.value = true
+        loginResponse.success.value = true
     }
 
 }

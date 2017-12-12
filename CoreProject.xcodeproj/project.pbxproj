@@ -183,8 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				8227ACEB1FCAF11900F63637 /* ChatRoomListViewController.swift */,
-				8227ACED1FCAF1AE00F63637 /* ChatRoomDetailViewController.swift */,
 				82DE3D171FC55273004A5F20 /* ChatViewController.swift */,
+				8227ACED1FCAF1AE00F63637 /* ChatRoomDetailViewController.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";

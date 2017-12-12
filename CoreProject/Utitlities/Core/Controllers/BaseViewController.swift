@@ -15,6 +15,7 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        logD("isHidden: \(String(describing: self.tabBarController?.tabBar.isHidden))")
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -25,6 +26,7 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
         } else {
             self.enableSwipeBack(enable: false, for: self)
         }
+         logD("isHidden: \(String(describing: self.tabBarController?.tabBar.isHidden))")
     }
 
     func viewWillSwipeBack() {

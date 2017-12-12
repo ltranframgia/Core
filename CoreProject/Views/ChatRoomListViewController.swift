@@ -121,7 +121,7 @@ extension ChatRoomListViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        self.performSegue(withIdentifier: "gotoChat", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

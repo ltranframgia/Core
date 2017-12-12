@@ -16,16 +16,23 @@ class ChatViewController: BaseViewController {
     // MARK: - Varialbes
 
     // MARK: - View Lifecycle
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.hidesBottomBarWhenPushed = true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        self.hidesBottomBarWhenPushed = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -43,6 +50,13 @@ class ChatViewController: BaseViewController {
     }
 
     // MARK: - Actions
+    @IBAction func touchDetailButtonAction(_ sender: Any?) {
+//        self.hidesBottomBarWhenPushed = false
+        let detailVC = ChatRoomDetailViewController.fromStoryboard(Storyboard.Chat.name)
+//        detailVC.hidesBottomBarWhenPushed = false
+        self.navigationController?.pushViewController(detailVC, animated: true)
+//        self.hidesBottomBarWhenPushed = true
+    }
 
     // MARK: - Functions
 

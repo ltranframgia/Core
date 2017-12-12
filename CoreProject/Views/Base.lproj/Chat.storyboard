@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mcD-x0-hJx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mcD-x0-hJx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -62,7 +62,7 @@
         <!--Chat View Controller-->
         <scene sceneID="Np4-ZH-a5i">
             <objects>
-                <viewController storyboardIdentifier="ChatViewController" id="a0z-3u-Jgd" customClass="ChatViewController" customModule="CoreProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" automaticallyAdjustsScrollViewInsets="NO" id="a0z-3u-Jgd" customClass="ChatViewController" customModule="CoreProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xin-Jd-Kzp"/>
                         <viewControllerLayoutGuide type="bottom" id="uP7-Aw-NLN"/>
@@ -70,7 +70,25 @@
                     <view key="view" contentMode="scaleToFill" id="Zb2-ll-diP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqy-D5-tSU">
+                                <rect key="frame" x="137.5" y="627" width="100" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="9TF-Wg-9Jr"/>
+                                    <constraint firstAttribute="height" constant="40" id="jTi-Wk-tHd"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="touchDetailButtonAction:" destination="a0z-3u-Jgd" eventType="touchUpInside" id="n5b-QD-qgV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87058823529999996" green="0.18823529410000001" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="nqy-D5-tSU" firstAttribute="centerX" secondItem="Zb2-ll-diP" secondAttribute="centerX" id="AKT-AQ-rhs"/>
+                            <constraint firstItem="uP7-Aw-NLN" firstAttribute="top" secondItem="nqy-D5-tSU" secondAttribute="bottom" id="OPC-s9-vYd"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="eTQ-fN-NTq" kind="show" identifier="gotoChatRoomDetail" id="RMI-PA-NsB"/>
@@ -83,7 +101,7 @@
         <!--Chat Room Detail View Controller-->
         <scene sceneID="vKZ-71-FXp">
             <objects>
-                <viewController storyboardIdentifier="ChatRoomDetailViewController" id="eTQ-fN-NTq" customClass="ChatRoomDetailViewController" customModule="CoreProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatRoomDetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="eTQ-fN-NTq" customClass="ChatRoomDetailViewController" customModule="CoreProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kmp-uv-hDV"/>
                         <viewControllerLayoutGuide type="bottom" id="2l4-A6-9UX"/>
@@ -91,7 +109,18 @@
                     <view key="view" contentMode="scaleToFill" id="E7C-Qn-wD8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbn-uO-o71">
+                                <rect key="frame" x="164.5" y="637" width="46" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xbn-uO-o71" firstAttribute="centerX" secondItem="E7C-Qn-wD8" secondAttribute="centerX" id="lE6-Zc-5kz"/>
+                            <constraint firstItem="2l4-A6-9UX" firstAttribute="top" secondItem="Xbn-uO-o71" secondAttribute="bottom" id="nuE-bD-u6F"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNF-W7-UCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

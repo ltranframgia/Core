@@ -10,8 +10,8 @@ import UIKit
 
 extension UIViewController {
     var mainViewController: MainViewController? {
-        if let _mainViewController = self.tabBarController as? MainViewController {
-            return _mainViewController
+        if let mainViewController = self.tabBarController as? MainViewController {
+            return mainViewController
         }
 
         return self.view.window?.rootViewController as? MainViewController

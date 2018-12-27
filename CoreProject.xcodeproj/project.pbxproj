@@ -20,6 +20,7 @@
 		82761DC41FD066B60015F2B4 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82761DC31FD066B60015F2B4 /* AuthRouter.swift */; };
 		82820F941FC55E45005ACE9B /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820F931FC55E45005ACE9B /* AppInfo.swift */; };
 		82820F9B1FC5604F005ACE9B /* ImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820F9A1FC5604F005ACE9B /* ImageExt.swift */; };
+		82AE1F14209B66CD00610738 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AE1F13209B66CD00610738 /* User.swift */; };
 		82BF01C81FCE4656009B2ED5 /* ViewBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BF01C71FCE4656009B2ED5 /* ViewBinding.swift */; };
 		82CCD5BB1FCD702800CC5775 /* DataBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CCD5BA1FCD702800CC5775 /* DataBinding.swift */; };
 		82D61DCA1FC48D2F0051ABFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82D61DC61FC48D2F0051ABFC /* Assets.xcassets */; };
@@ -87,6 +88,7 @@
 		82820F931FC55E45005ACE9B /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		82820F9A1FC5604F005ACE9B /* ImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExt.swift; sourceTree = "<group>"; };
 		8290A6C31FC495DD00705546 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82AE1F13209B66CD00610738 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		82BF01C71FCE4656009B2ED5 /* ViewBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBinding.swift; sourceTree = "<group>"; };
 		82CCD5BA1FCD702800CC5775 /* DataBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBinding.swift; sourceTree = "<group>"; };
 		82D61CC91FC488BA0051ABFC /* CoreProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,15 +207,6 @@
 			name = Start;
 			sourceTree = "<group>";
 		};
-		82820F911FC55DF6005ACE9B /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				82DE3D1B1FC55273004A5F20 /* BaseViewController.swift */,
-				82DE3D1E1FC55273004A5F20 /* MainViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		82820F921FC55DF6005ACE9B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,12 +248,22 @@
 		82820F991FC55F08005ACE9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				82C6F2571FECD7F800C6D6F8 /* Base */,
 				8227ACEA1FCAF0BC00F63637 /* Start */,
 				8227ACE51FC9CAB400F63637 /* Account */,
 				8227ACE81FCAF03500F63637 /* Chat */,
 				8227ACE91FCAF04000F63637 /* Setting */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		82C6F2571FECD7F800C6D6F8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				82DE3D1B1FC55273004A5F20 /* BaseViewController.swift */,
+				82DE3D1E1FC55273004A5F20 /* MainViewController.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		82D61CC01FC488BA0051ABFC = {
@@ -329,6 +332,7 @@
 		82DE3D041FC55272004A5F20 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				82DE3D401FC55273004A5F20 /* Managers */,
 				82DE3D051FC55272004A5F20 /* Define */,
 				82DE3D0E1FC55272004A5F20 /* Extensions */,
 			);
@@ -367,6 +371,7 @@
 				82DE3D131FC55272004A5F20 /* LeftMenu.swift */,
 				82DE3D141FC55272004A5F20 /* RUser.swift */,
 				82627E7D1FCB04970019F5D5 /* ChatRoom.swift */,
+				82AE1F13209B66CD00610738 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -404,11 +409,9 @@
 			children = (
 				8227ACE21FC9B86B00F63637 /* Define */,
 				82820F921FC55DF6005ACE9B /* Models */,
-				82DE3D401FC55273004A5F20 /* Managers */,
 				82DE3D441FC55273004A5F20 /* Designable */,
 				82DE3D4B1FC55273004A5F20 /* Protocol */,
 				82DE3D4F1FC55273004A5F20 /* Extensions */,
-				82820F911FC55DF6005ACE9B /* Controllers */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -478,7 +481,6 @@
 				82D61CC61FC488BA0051ABFC /* Frameworks */,
 				82D61CC71FC488BA0051ABFC /* Resources */,
 				15AD28109698C739D2251205 /* [CP] Embed Pods Frameworks */,
-				C7EEE39FDB88BC085D65D52E /* [CP] Copy Pods Resources */,
 				823327241FC56C8B00787EA8 /* Swiftlint */,
 			);
 			buildRules = (
@@ -497,7 +499,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Framgia;
 				TargetAttributes = {
 					82D61CC81FC488BA0051ABFC = {
@@ -571,8 +573,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CoreProject/Pods-CoreProject-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
@@ -580,8 +580,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
@@ -604,21 +602,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-		C7EEE39FDB88BC085D65D52E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreProject/Pods-CoreProject-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -657,6 +640,7 @@
 				82820F9B1FC5604F005ACE9B /* ImageExt.swift in Sources */,
 				8227ACEE1FCAF1AE00F63637 /* ChatRoomDetailViewController.swift in Sources */,
 				82DE3D871FC55274004A5F20 /* LocationManager.swift in Sources */,
+				82AE1F14209B66CD00610738 /* User.swift in Sources */,
 				82DE3D651FC55273004A5F20 /* String.swift in Sources */,
 				82DE3D8C1FC55274004A5F20 /* DView.swift in Sources */,
 				8227ACF01FCAF39D00F63637 /* ChatRoomListViewModel.swift in Sources */,
@@ -758,6 +742,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -765,6 +750,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -815,6 +801,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -822,6 +809,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

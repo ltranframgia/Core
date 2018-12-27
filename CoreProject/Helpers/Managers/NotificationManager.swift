@@ -133,10 +133,10 @@ struct Payload {
     }
 
     init?(json: JSON?) {
-        guard let _json = json else { return nil }
+        guard let json = json else { return nil }
 
         // parse json
-        self.parseJson(_json)
+        self.parseJson(json)
     }
 
     private mutating func parseJson(_ json: JSON) {

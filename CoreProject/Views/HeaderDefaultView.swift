@@ -76,9 +76,9 @@ import SnapKit
     private func initView() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-        if let _contentView = nib.instantiate(withOwner: self, options: nil).first as? UIView {
-            self.addSubview(_contentView)
-            _contentView.snp.makeConstraints({ (make) in
+        if let contentView = nib.instantiate(withOwner: self, options: nil).first as? UIView {
+            self.addSubview(contentView)
+            contentView.snp.makeConstraints({ (make) in
                 make.top.equalTo(self.snp.top).offset(0)
                 make.bottom.equalTo(self.snp.bottom).offset(0)
                 make.trailing.equalTo(self.snp.trailing).offset(0)

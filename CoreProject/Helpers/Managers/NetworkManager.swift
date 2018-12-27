@@ -8,6 +8,7 @@ import Alamofire
 public typealias ResponseHandler = (ResponseObject?) -> Void
 public typealias Parameter = Parameters
 public typealias NRequest = Request
+
 public typealias DataUpLoad = (data: Data, name: String, fileName: String, mimeType: String)
 
 protocol UploadURLConvertible: URLConvertible {
@@ -56,12 +57,12 @@ public enum HttpStatusCode: Int {
     case other = 9999
 
     init?(statusCode: Int?) {
-        guard let _statusCode = statusCode else {
+        guard let statusCode = statusCode else {
             return nil
         }
 
         // init
-        if let value = HttpStatusCode(rawValue: _statusCode) {
+        if let value = HttpStatusCode(rawValue: statusCode) {
             self = value
         } else {
             self = HttpStatusCode.other
@@ -153,9 +154,9 @@ struct NetworkManager {
             errorCode = HttpStatusCode(rawValue: NSURLErrorCannotFindHost)
             requestResult = .error
         } else {  // Orther
-            if let _data = data {
+            if let data = data {
                 do {
-                    errorData = try JSONSerialization.jsonObject(with: _data, options: []) as AnyObject
+                    errorData = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
                 } catch {
                 }
             }
@@ -179,7 +180,7 @@ struct NetworkManager {
         // AuthHandler
         let authHandler = AuthHandler(baseUrl: Config.baseUrl)
         manager.adapter = authHandler
-        // manager.retrier = authHandler
+        manager.retrier = authHandler
 
         return manager.request(request).validate().responseJSON { (response) in
             // analyze response
@@ -231,8 +232,8 @@ struct NetworkManager {
             }
 
             // key value
-            let _params = self.parseParameters(params)
-            for (key, value) in _params {
+            let newParams = self.parseParameters(params)
+            for (key, value) in newParams {
                 if let dataValue = value.data(using: .utf8) {
                     multipartFormData.append(dataValue, withName: key)
                 }
@@ -274,14 +275,14 @@ struct NetworkManager {
 extension NetworkManager {
 
     fileprivate static func parseParameters(_ parameters: Parameters?) -> [(String, String)] {
-        guard let _parameters = parameters else {
+        guard let parameters = parameters else {
             return []
         }
 
         var components: [(String, String)] = []
 
-        for key in _parameters.keys.sorted(by: <) {
-            if let value = _parameters[key] {
+        for key in parameters.keys.sorted(by: <) {
+            if let value = parameters[key] {
                 components += queryComponents(fromKey: key, value: value)
             }
         }

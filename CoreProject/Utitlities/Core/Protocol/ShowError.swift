@@ -19,22 +19,22 @@ extension ShowError where Self: UIViewController {
 
     func showError(errorView: ErrorView?, inView: UIView?) {
         self.hideError()
-        guard let _view = inView else {
+        guard let view = inView else {
             return
         }
 
         // error container view
-        let _errorView = errorView ?? ErrorView()
+        let errorView = errorView ?? ErrorView()
         // added to super view
-        self.view.addSubview(_errorView)
-        self.view.bringSubview(toFront: _errorView)
+        self.view.addSubview(errorView)
+        self.view.bringSubview(toFront: errorView)
 
         // constraint
-        _errorView.snp.makeConstraints { (make) in
-            make.top.equalTo(_view.snp.top)
-            make.bottom.equalTo(_view.snp.bottom)
-            make.left.equalTo(_view.snp.left)
-            make.right.equalTo(_view.snp.right)
+        errorView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.snp.top)
+            make.bottom.equalTo(view.snp.bottom)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
         }
     }
 

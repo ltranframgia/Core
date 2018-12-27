@@ -2,14 +2,11 @@ import Alamofire
 
 enum AppRouter: URLRequestConvertible {
     case getAppInfo(parameters: Parameters?)
-    case login(parameters: Parameters?)
 
     var method: HTTPMethod {
         switch self {
         case .getAppInfo:
             return .get
-        case .login:
-            return .post
         }
     }
 
@@ -17,8 +14,6 @@ enum AppRouter: URLRequestConvertible {
         switch self {
         case .getAppInfo :
             return "/app/infos"
-        case .login:
-            return "/login"
         }
     }
 
@@ -31,8 +26,6 @@ enum AppRouter: URLRequestConvertible {
 
         switch self {
         case .getAppInfo(let parameters):
-            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
-        case .login(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
         }
 

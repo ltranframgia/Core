@@ -71,10 +71,14 @@ class AuthHandler: RequestAdapter, RequestRetrier {
     }()
 
     // MARK: - Initialization
+    init() {
+    }
+    
     init(baseUrl: String?) {
         self.baseUrl = baseUrl
     }
-
+    
+    @discardableResult
     func parse(jsonObject: AnyObject?) -> Bool {
 
         guard let jsonData = jsonObject else { return false }
@@ -97,11 +101,11 @@ class AuthHandler: RequestAdapter, RequestRetrier {
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var urlRequest = urlRequest
 
-        if let _accessToken = self.accessToken,
-            let _baseUrl = self.baseUrl,
+        if let accessToken = self.accessToken,
+            let baseUrl = self.baseUrl,
             let urlString = urlRequest.url?.absoluteString,
-            urlString.hasPrefix(_baseUrl) {
-            urlRequest.setValue("Bearer " + _accessToken, forHTTPHeaderField: HeaderKey.Authorization)
+            urlString.hasPrefix(baseUrl) {
+            urlRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: HeaderKey.Authorization)
         }
 
         return urlRequest
@@ -123,6 +127,7 @@ class AuthHandler: RequestAdapter, RequestRetrier {
 
                 // refresh token
                 self.refreshTokens { [weak self] value in
+                    
                     guard let strongSelf = self else { return }
 
                     strongSelf.lock.lock()

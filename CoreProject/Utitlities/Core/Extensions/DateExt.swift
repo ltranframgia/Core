@@ -39,7 +39,7 @@ extension Date {
         if let convertDate = fromDate {
             let dateFormatter = DateFormatter()
             dateFormatter.timeZone = NSTimeZone.default
-            dateFormatter.locale = NSLocale(localeIdentifier: LocaleIdentifier.enUSPOSIX.rawValue) as Locale!
+            dateFormatter.locale = NSLocale(localeIdentifier: LocaleIdentifier.enUSPOSIX.rawValue) as Locale
             dateFormatter.dateFormat = format.rawValue
             return dateFormatter.string(from: convertDate)
         } else {
@@ -51,7 +51,7 @@ extension Date {
         if let dateString = fromString {
             let dateFormatter = DateFormatter()
             dateFormatter.timeZone = NSTimeZone.default
-            dateFormatter.locale = NSLocale(localeIdentifier: LocaleIdentifier.enUSPOSIX.rawValue) as Locale!
+            dateFormatter.locale = NSLocale(localeIdentifier: LocaleIdentifier.enUSPOSIX.rawValue) as Locale
             dateFormatter.dateFormat = format.rawValue
             return dateFormatter.date(from: dateString)
         } else {
@@ -63,7 +63,7 @@ extension Date {
         if let dateString = fromString {
             let dateFormatter = DateFormatter()
             dateFormatter.timeZone = NSTimeZone.default
-            dateFormatter.locale = NSLocale(localeIdentifier: LocaleIdentifier.enUSPOSIX.rawValue) as Locale!
+            dateFormatter.locale = NSLocale(localeIdentifier: LocaleIdentifier.enUSPOSIX.rawValue) as Locale
             dateFormatter.dateFormat = fromFormat.rawValue
             guard let date = dateFormatter.date(from: dateString) else {
                 return nil

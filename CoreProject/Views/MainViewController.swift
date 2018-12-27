@@ -12,6 +12,7 @@ class TTabBarItem: UITabBarItem {
 class MainViewController: UITabBarController {
 
     // MARK: - Varialbes
+    private let button: UIButton = UIButton(type: UIButtonType.system)
 
     // MARK: - View Lifecycle
     override func awakeFromNib() {
@@ -32,7 +33,12 @@ class MainViewController: UITabBarController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        button.removeFromSuperview()
+        button.frame = CGRect(x: 100, y: 100, width: 150, height: 40)
+        button.setTitle("chatbot", for: UIControlState.normal)
+        button.backgroundColor = UIColor.red
+        self.view.addSubview(button)
+        self.view.bringSubview(toFront: button)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

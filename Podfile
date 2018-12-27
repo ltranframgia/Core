@@ -8,7 +8,7 @@ target 'CoreProject' do
   # Pods for CoreProject
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'RealmSwift'
+#  pod 'RealmSwift'
   pod 'TPKeyboardAvoiding'
   pod 'SnapKit'
 

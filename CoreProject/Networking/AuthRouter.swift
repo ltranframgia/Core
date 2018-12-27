@@ -9,6 +9,7 @@
 import Alamofire
 
 enum AuthRouter: URLRequestConvertible {
+    
     case login(parameters: Parameters?)
 
     var method: HTTPMethod {

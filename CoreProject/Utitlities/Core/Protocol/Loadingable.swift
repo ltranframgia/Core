@@ -95,25 +95,25 @@ extension Loadingable where Self: UIViewController {
 
     func showLoadingIndicator(inView: UIView?, position: PositionLoading, offset: Float) {
         self.hideLoadingIndicator()
-        guard let _view = inView else {
+        guard let view = inView else {
             return
         }
-        let _loadingView = loadingView
-        let frame = _loadingView.frame
-        self.view.addSubview(_loadingView)
-        self.view.bringSubview(toFront: _loadingView)
-        _loadingView.snp.makeConstraints { (make) in
+        let loadingView1 = loadingView
+        let frame = loadingView1.frame
+        self.view.addSubview(loadingView1)
+        self.view.bringSubview(toFront: loadingView1)
+        loadingView1.snp.makeConstraints { (make) in
             switch position {
             case .top:
-                make.top.equalTo(_view.snp.top).offset(offset)
+                make.top.equalTo(view.snp.top).offset(offset)
             case .center:
-                make.centerY.equalTo(_view.snp.centerY).offset(offset)
+                make.centerY.equalTo(view.snp.centerY).offset(offset)
             }
-            make.centerX.equalTo(_view.snp.centerX)
+            make.centerX.equalTo(view.snp.centerX)
             make.height.equalTo(frame.size.height)
             make.width.equalTo(frame.size.width)
         }
-        _loadingView.startAnimating()
+        loadingView1.startAnimating()
 
     }
 }
@@ -134,11 +134,11 @@ extension Loadingable where Self: UIView {
     func showLoadingIndicator(position: PositionLoading, offset: Float) {
         self.hideLoadingIndicator()
 
-        let _loadingView = loadingView
-        let frame = _loadingView.frame
-        self.addSubview(_loadingView)
-        self.bringSubview(toFront: _loadingView)
-        _loadingView.snp.makeConstraints { (make) in
+        let loadingView1 = loadingView
+        let frame = loadingView1.frame
+        self.addSubview(loadingView1)
+        self.bringSubview(toFront: loadingView1)
+        loadingView1.snp.makeConstraints { (make) in
             switch position {
             case .top:
                 make.top.equalTo(self.snp.top).offset(offset)
@@ -149,7 +149,7 @@ extension Loadingable where Self: UIView {
             make.height.equalTo(frame.size.height)
             make.width.equalTo(frame.size.width)
         }
-        _loadingView.startAnimating()
+        loadingView1.startAnimating()
 
     }
 }

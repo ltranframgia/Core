@@ -9,13 +9,13 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        logD("\(String(describing: self))")
+//        logD("\(String(describing: self))")
         self.createBackButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        logD("isHidden: \(String(describing: self.tabBarController?.tabBar.isHidden))")
+//        logD("isHidden: \(String(describing: self.tabBarController?.tabBar.isHidden))")
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -26,11 +26,11 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
         } else {
             self.enableSwipeBack(enable: false, for: self)
         }
-         logD("isHidden: \(String(describing: self.tabBarController?.tabBar.isHidden))")
+//         logD("isHidden: \(String(describing: self.tabBarController?.tabBar.isHidden))")
     }
 
     func viewWillSwipeBack() {
-        logD("\(String(describing: self))")
+//        logD("\(String(describing: self))")
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,7 +46,7 @@ class BaseViewController: UIViewController, VCInNavigation, Loadingable, ShowErr
     }
 
     deinit {
-        logD("\(String(describing: self))")
+//        logD("\(String(describing: self))")
     }
 
     // MARK: - Setup View

@@ -128,11 +128,11 @@ extension ChatRoomListViewController: UITableViewDelegate, UITableViewDataSource
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 
         // load more
-        let y = scrollView.contentOffset.y
-        let content_height = scrollView.contentSize.height
-        let frame_height = scrollView.frame.height
-        let maximumOffset = content_height - frame_height
-        if maximumOffset - y <= 50 {
+        let contentOffsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let frameHeight = scrollView.frame.height
+        let maximumOffset = contentHeight - frameHeight
+        if maximumOffset - contentOffsetY <= 50 {
             if self.viewModel?.isRequesting != true {
                 tableView.showLoadMoreFooterView {
                     self.viewModel?.doGetData(.loadMore)

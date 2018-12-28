@@ -3,6 +3,7 @@ import UIKit
 enum TabBarType: Int {
     case chat
     case setting
+    case certificate
 }
 
 class TTabBarItem: UITabBarItem {
@@ -87,8 +88,14 @@ class MainViewController: UITabBarController {
         tabBarItemSetting.type = .setting
         navigationSetting.tabBarItem = tabBarItemSetting
 
+        // Certificate
+        let navigationCertificate = UIStoryboard(name: Storyboard.Certificate.name, bundle: nil).instantiateInitialViewController()!
+        let tabBarItemCertificate = TTabBarItem(title: "Certificate", image: #imageLiteral(resourceName: "ic_tabbar_timeline"), selectedImage: #imageLiteral(resourceName: "ic_tabbar_timeline"))
+        tabBarItemCertificate.type = .certificate
+        navigationCertificate.tabBarItem = tabBarItemCertificate
+
         // set list childs controller to tabbar
-        let controllers = [navigationChat, navigationSetting]
+        let controllers = [navigationChat, navigationSetting, navigationCertificate]
         viewControllers = controllers
         hideTabbar(hide: false)
     }

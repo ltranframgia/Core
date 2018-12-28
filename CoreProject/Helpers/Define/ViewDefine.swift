@@ -16,4 +16,8 @@ struct Storyboard {
     struct Setting {
         static let name                         = "Setting"
     }
+
+    struct Certificate {
+        static let name = "Certificate"
+    }
 }

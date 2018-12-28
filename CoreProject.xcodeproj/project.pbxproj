@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		116DD13221D4DBAC000D401C /* CertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116DD13121D4DBAC000D401C /* CertificateViewController.swift */; };
+		116DD13421D4DBF7000D401C /* Certificate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116DD13321D4DBF7000D401C /* Certificate.storyboard */; };
+		11BD026221D60BC30029C4CE /* CertificateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BD026121D60BC30029C4CE /* CertificateRouter.swift */; };
+		11BD026421D60E7E0029C4CE /* herokuapp.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = 11BD026321D60E7E0029C4CE /* herokuapp.com.cer */; };
 		346715C5A69E46C140B40A5A /* Pods_CoreProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD34971A5375B33DCEAE111 /* Pods_CoreProject.framework */; };
 		8227ACE41FC9B94B00F63637 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227ACE31FC9B94B00F63637 /* NotificationManager.swift */; };
 		8227ACE71FC9DA1300F63637 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227ACE61FC9DA1300F63637 /* LoginViewModel.swift */; };
@@ -73,6 +77,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		116DD13121D4DBAC000D401C /* CertificateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateViewController.swift; sourceTree = "<group>"; };
+		116DD13321D4DBF7000D401C /* Certificate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Certificate.storyboard; sourceTree = "<group>"; };
+		11BD026121D60BC30029C4CE /* CertificateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateRouter.swift; sourceTree = "<group>"; };
+		11BD026321D60E7E0029C4CE /* herokuapp.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = herokuapp.com.cer; sourceTree = "<group>"; };
 		427D2647E0A163A8DDA1EFD4 /* Pods-CoreProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreProject/Pods-CoreProject.debug.xcconfig"; sourceTree = "<group>"; };
 		6CD34971A5375B33DCEAE111 /* Pods_CoreProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8227ACE31FC9B94B00F63637 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -155,6 +163,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		116DD13021D4DB88000D401C /* Certificate */ = {
+			isa = PBXGroup;
+			children = (
+				116DD13121D4DBAC000D401C /* CertificateViewController.swift */,
+			);
+			name = Certificate;
+			sourceTree = "<group>";
+		};
+		116DD13521D4DCF2000D401C /* Certificate */ = {
+			isa = PBXGroup;
+			children = (
+				11BD026321D60E7E0029C4CE /* herokuapp.com.cer */,
+			);
+			path = Certificate;
+			sourceTree = "<group>";
+		};
 		59A7CFE04A2EB4BC4BC244E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +247,7 @@
 				82DE3D361FC55273004A5F20 /* Account.storyboard */,
 				82DE3D241FC55273004A5F20 /* Setting.storyboard */,
 				82DE3D321FC55273004A5F20 /* Chat.storyboard */,
+				116DD13321D4DBF7000D401C /* Certificate.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -253,6 +278,7 @@
 				8227ACE51FC9CAB400F63637 /* Account */,
 				8227ACE81FCAF03500F63637 /* Chat */,
 				8227ACE91FCAF04000F63637 /* Setting */,
+				116DD13021D4DB88000D401C /* Certificate */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -303,6 +329,7 @@
 		82D61DC51FC48D2F0051ABFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				116DD13521D4DCF2000D401C /* Certificate */,
 				8290A6C31FC495DD00705546 /* Info.plist */,
 				82D61DC61FC48D2F0051ABFC /* Assets.xcassets */,
 				82D61DC71FC48D2F0051ABFC /* Localizable.strings */,
@@ -317,6 +344,7 @@
 				82DE3D001FC55272004A5F20 /* AuthHandler.swift */,
 				82DE3D011FC55272004A5F20 /* AppRouter.swift */,
 				82761DC31FD066B60015F2B4 /* AuthRouter.swift */,
+				11BD026121D60BC30029C4CE /* CertificateRouter.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -482,6 +510,7 @@
 				82D61CC71FC488BA0051ABFC /* Resources */,
 				15AD28109698C739D2251205 /* [CP] Embed Pods Frameworks */,
 				823327241FC56C8B00787EA8 /* Swiftlint */,
+				619A6EE1E4CA37D6AD69D963 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -540,6 +569,8 @@
 				82D61DCB1FC48D2F0051ABFC /* Localizable.strings in Resources */,
 				82D61DCA1FC48D2F0051ABFC /* Assets.xcassets in Resources */,
 				8227ACF41FCAFED300F63637 /* ChatRoomTableViewCell.xib in Resources */,
+				116DD13421D4DBF7000D401C /* Certificate.storyboard in Resources */,
+				11BD026421D60E7E0029C4CE /* herokuapp.com.cer in Resources */,
 				82DE3D781FC55273004A5F20 /* HeaderDefaultView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,6 +620,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreProject/Pods-CoreProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		619A6EE1E4CA37D6AD69D963 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreProject/Pods-CoreProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		823327241FC56C8B00787EA8 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,6 +678,7 @@
 				82DE3D921FC55274004A5F20 /* StringExt.swift in Sources */,
 				82820F941FC55E45005ACE9B /* AppInfo.swift in Sources */,
 				82DE3D931FC55274004A5F20 /* ColorExt.swift in Sources */,
+				11BD026221D60BC30029C4CE /* CertificateRouter.swift in Sources */,
 				82DE3D631FC55273004A5F20 /* EnumDefine.swift in Sources */,
 				8227ACF31FCAFED300F63637 /* ChatRoomTableViewCell.swift in Sources */,
 				82DE3D861FC55274004A5F20 /* NetworkManager.swift in Sources */,
@@ -660,6 +707,7 @@
 				82DE3D7F1FC55273004A5F20 /* AppStartViewController.swift in Sources */,
 				82DE3D911FC55274004A5F20 /* DateExt.swift in Sources */,
 				82DE3D611FC55273004A5F20 /* StructDefine.swift in Sources */,
+				116DD13221D4DBAC000D401C /* CertificateViewController.swift in Sources */,
 				82DE3D5E1FC55273004A5F20 /* LocalizableString.swift in Sources */,
 				82DE3D5D1FC55273004A5F20 /* Constants.swift in Sources */,
 				82DE3D641FC55273004A5F20 /* ViewDefine.swift in Sources */,

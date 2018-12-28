@@ -91,6 +91,8 @@ struct NetworkManager {
     }
 
     static var canShowNetworkActivityIndicator: Bool = true
+    static var isPinCertificates: Bool = true
+    static var isPinPublicKeys: Bool = true
 
     private static let defaultSessionManager: SessionManager = {
 
@@ -104,10 +106,46 @@ struct NetworkManager {
         configuration.timeoutIntervalForRequest = 30
 
         // sessionManager
-        let sessionManager = SessionManager(configuration: configuration)
+        let sessionManager = NetworkManager.getSessionManager(configuration)
 
         return sessionManager
     }()
+
+    private static func getSessionManager(_ configuration: URLSessionConfiguration) -> SessionManager {
+        var sessionManager: SessionManager!
+
+        if NetworkManager.isPinCertificates {
+            // server trust policy
+            let serverTrustPolicies: [String: ServerTrustPolicy] = [
+                Config.domain: .pinCertificates(certificates: ServerTrustPolicy.certificates(),
+                                                validateCertificateChain: true,
+                                                validateHost: true)
+            ]
+
+            // sessionManager
+            sessionManager = SessionManager(configuration: configuration,
+                                            serverTrustPolicyManager: ServerTrustPolicyManager(
+                                            policies: serverTrustPolicies))
+        } else if NetworkManager.isPinPublicKeys {
+            // server trust policy
+            let serverTrustPolicies: [String: ServerTrustPolicy] = [
+                 Config.domain: .pinPublicKeys(
+                                publicKeys: ServerTrustPolicy.publicKeys(),
+                                validateCertificateChain: true,
+                                validateHost: true)
+            ]
+
+            // sessionManager
+            sessionManager = SessionManager(
+                                serverTrustPolicyManager: ServerTrustPolicyManager(
+                                policies: serverTrustPolicies)
+            )
+        } else {
+            sessionManager = SessionManager(configuration: configuration)
+        }
+
+        return sessionManager
+    }
 
     // MARK: - Functions
     private static func analyzeResponse(response: DataResponse<Any>, completionHandler: ResponseHandler?) {
